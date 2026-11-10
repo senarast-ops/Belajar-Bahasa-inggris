@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --card: rgba(255, 255, 255, 0.95);
+      --card: rgba(255, 255, 255, 0.96);
       --primary: #ff7a59;
       --primary-dark: #e05d3c;
       --secondary: #38bdf8;
@@ -40,7 +40,7 @@
     }
 
     header {
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       padding: 10px 18px;
       box-shadow: 0 6px 20px rgba(14, 116, 144, 0.08);
@@ -55,7 +55,7 @@
       gap: 10px;
     }
 
-    .brand { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .brand { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
     .brand-logo {
       font-size: 1.9rem;
       background: #fff7ed;
@@ -90,7 +90,6 @@
       font-size: 0.84rem;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: none;
     }
 
     .container {
@@ -116,7 +115,6 @@
     .edu-banner-text { font-size: 0.9rem; color: #334155; font-weight: 700; }
     .edu-tag { background: #0284c7; color: #fff; padding: 4px 12px; border-radius: 999px; font-size: 0.76rem; font-weight: 800; }
 
-    /* Navigasi Tab Utama */
     .nav-tabs {
       display: flex;
       gap: 10px;
@@ -125,7 +123,7 @@
       margin-bottom: 22px;
     }
     .tab-btn {
-      background: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.9);
       color: #475569;
       border: 2px solid #cbd5e1;
       border-radius: 999px;
@@ -133,6 +131,7 @@
       font-weight: 800;
       font-size: 0.94rem;
       box-shadow: 0 3px 0 #cbd5e1;
+      cursor: pointer;
     }
     .tab-btn.active {
       background: #ff7a59;
@@ -200,7 +199,6 @@
 
     .hidden { display: none !important; }
 
-    /* Kotak Game Utama */
     .game-box {
       background: var(--card);
       border-radius: 28px;
@@ -270,7 +268,6 @@
     .flashcard-word { text-align: center; font-size: 1.85rem; font-weight: 700; color: #ea580c; margin: 6px 0 2px; }
     .flashcard-meaning { text-align: center; font-size: 1.08rem; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
 
-    /* BONUS MINI-GAME BALLOON POP */
     .balloon-arena {
       position: relative;
       height: 330px;
@@ -292,7 +289,6 @@
       cursor: pointer;
       box-shadow: inset -6px -8px 0 rgba(0,0,0,0.14), 0 6px 14px rgba(0,0,0,0.12);
       text-shadow: 0 1px 2px rgba(0,0,0,0.35);
-      transition: transform 0.1s;
       white-space: nowrap;
     }
     .balloon::after {
@@ -304,9 +300,7 @@
       height: 15px;
       background: rgba(255,255,255,0.85);
     }
-    .balloon:active { transform: scale(1.2); }
 
-    /* ALBUM STIKER KOLEKSI */
     .album-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
@@ -335,7 +329,6 @@
     }
     .sticker-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* TOKO & MASKOT */
     .shop-section {
       background: var(--card);
       border-radius: 24px;
@@ -359,7 +352,6 @@
     }
     .shop-item.equipped { border-color: #22c55e; background: #f0fdf4; }
 
-    /* COMPANION PET FLOATING WIDGET */
     .pet-widget {
       position: fixed;
       bottom: 16px;
@@ -368,13 +360,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.97);
       border: 3px solid #fed7aa;
       border-radius: 999px;
       padding: 8px 16px 8px 10px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.14);
       cursor: pointer;
-      max-width: 320px;
+      max-width: 330px;
+      user-select: none;
     }
     .pet-avatar-circle {
       width: 48px;
@@ -385,7 +378,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       flex-shrink: 0;
       animation: bouncePet 2.4s infinite ease-in-out;
     }
@@ -393,7 +386,6 @@
     .pet-speech { font-size: 0.8rem; font-weight: 800; color: #334155; line-height: 1.25; }
     .pet-stage-tag { font-size: 0.7rem; color: #ea580c; font-weight: 900; display: block; }
 
-    /* SERTIFIKAT AREA */
     .reward-card {
       background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
       border: 3px solid #fde68a;
@@ -426,7 +418,7 @@
     footer {
       text-align: center;
       padding: 18px 16px 85px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.82);
       border-top: 2px solid #bae6fd;
       color: #475569;
       font-size: 0.88rem;
@@ -438,7 +430,7 @@
 <body>
 
   <header>
-    <div class="brand" onclick="switchTab('adventure')">
+    <div class="brand" id="brandHomeBtn">
       <div class="brand-logo">🌈</div>
       <div>
         <div class="brand-title">English Fun Adventure</div>
@@ -447,9 +439,9 @@
     </div>
     <div class="header-right">
       <div class="pill">⭐ <span id="totalStars">0</span>/18</div>
-      <div class="pill pill-coin">🪙 <span id="totalCoins">0</span> Koin</div>
-      <button class="pill-btn" id="musicBtn" onclick="toggleMusic()">🎵 Musik: OFF</button>
-      <button class="pill-btn" onclick="toggleFullscreen()">⛶ Layar Penuh</button>
+      <div class="pill pill-coin">🪙 <span id="totalCoins">20</span> Koin</div>
+      <button type="button" class="pill-btn" id="musicBtn">🎵 Musik: OFF</button>
+      <button type="button" class="pill-btn" id="fullscreenBtn">⛶ Layar Penuh</button>
     </div>
   </header>
 
@@ -461,15 +453,14 @@
       <span class="edu-tag">Created by kabellasensen</span>
     </div>
 
-    <!-- MENU TAB UTAMA -->
     <div class="nav-tabs" id="mainNavTabs">
-      <button class="tab-btn active" id="tabBtnAdventure" onclick="switchTab('adventure')">🗺️ Level Petualangan</button>
-      <button class="tab-btn" id="tabBtnAlbum" onclick="switchTab('album')">📒 Album Stiker (<span id="albumCountLabel">0</span>)</button>
-      <button class="tab-btn" id="tabBtnShop" onclick="switchTab('shop')">🛍️ Toko & Maskot</button>
-      <button class="tab-btn" id="tabBtnGrand" onclick="switchTab('grand')">👑 Grand Master</button>
+      <button type="button" class="tab-btn active" id="tabBtnAdventure">🗺️ Level Petualangan</button>
+      <button type="button" class="tab-btn" id="tabBtnAlbum">📒 Album Stiker (<span id="albumCountLabel">0/34</span>)</button>
+      <button type="button" class="tab-btn" id="tabBtnShop">🛍️ Toko & Maskot</button>
+      <button type="button" class="tab-btn" id="tabBtnGrand">👑 Grand Master</button>
     </div>
 
-    <!-- TAB 1: DAFTAR LEVEL 1-6 -->
+    <!-- TAB 1: LEVEL PETUALANGAN -->
     <section id="adventureTab">
       <div class="hero">
         <h1>Pilih Level Tantanganmu! 🚀</h1>
@@ -478,20 +469,20 @@
       <div class="level-grid" id="levelGrid"></div>
     </section>
 
-    <!-- TAB 2: ALBUM KOLEKSI STIKER OBJEK -->
+    <!-- TAB 2: ALBUM STIKER -->
     <section id="albumTab" class="hidden">
       <div class="hero">
         <h1>📒 My Sticker Album</h1>
-        <p>Jawab benar soal-soal di tiap Subtest untuk membuka foto objek nyata beserta suara pelafalannya di albummu!</p>
+        <p>Jawab benar soal-soal di tiap Subtest untuk membuka koleksi foto objek nyata beserta suara pelafalannya!</p>
       </div>
       <div class="album-grid" id="albumGrid"></div>
     </section>
 
-    <!-- TAB 3: TOKO STIKER, AVATAR SERTIFIKAT & MASKOT -->
+    <!-- TAB 3: TOKO & MASKOT -->
     <section id="shopTab" class="hidden">
       <div class="hero">
         <h1>🛍️ Toko Kustomisasi & Maskot</h1>
-        <p>Gunakan 🪙 Koin dari hasil menjawab soal, latihan mikrofon, dan memecahkan balon untuk menghias Sertifikat Digitalmu!</p>
+        <p>Tukarkan 🪙 Koin dari hasil menjawab soal, latihan mikrofon, dan memecahkan balon untuk menghias Sertifikat Digitalmu!</p>
       </div>
 
       <div class="shop-section">
@@ -516,7 +507,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: SERTIFIKAT UTAMA GRAND MASTER -->
+    <!-- TAB 4: SERTIFIKAT GRAND MASTER -->
     <section id="grandTab" class="hidden">
       <div class="game-box" style="text-align:center">
         <div style="font-size:4rem" id="grandLockIcon">🔒</div>
@@ -525,8 +516,8 @@
 
         <div id="grandCertBox" class="reward-card hidden">
           <div class="name-input-group">
-            <input type="text" id="grandNameInput" maxlength="28" placeholder="Ketik nama lengkap/panggilanmu..." oninput="renderGrandCertificate()" />
-            <button class="btn-success" onclick="downloadGrandJPG()">⬇ Unduh Grand Master (.JPG)</button>
+            <input type="text" id="grandNameInput" maxlength="28" placeholder="Ketik nama lengkap/panggilanmu..." />
+            <button type="button" class="btn-success" id="downloadGrandBtn">⬇ Unduh Grand Master (.JPG)</button>
           </div>
           <div class="cert-preview-wrap">
             <canvas id="grandCertCanvas" width="1000" height="700"></canvas>
@@ -535,11 +526,11 @@
       </div>
     </section>
 
-    <!-- LAYAR MODE BELAJAR (FLASHCARD + MIC) -->
+    <!-- LAYAR BELAJAR (FLASHCARD) -->
     <section id="studyScreen" class="hidden">
       <div class="game-box">
         <div class="top-controls">
-          <button class="btn-secondary" style="flex:0" onclick="goHome()">⬅ Kembali</button>
+          <button type="button" class="btn-secondary" style="flex:0" id="studyBackBtn">⬅ Kembali</button>
           <strong id="studyTitle" style="color:#0369a1">Materi Level</strong>
           <span id="studyCounter" style="color:var(--muted);font-weight:800">1/6</span>
         </div>
@@ -548,14 +539,14 @@
           <div class="flashcard-word" id="studyEn">Apple</div>
           <div class="flashcard-meaning" id="studyId">Artinya: Apel</div>
           <div class="voice-bar">
-            <button class="btn-speak" onclick="speakCurrentStudy()">🔊 Dengarkan</button>
-            <button class="btn-mic" id="studyMicBtn" onclick="practiceMicStudy()">🎤 Ucapkan (+10 🪙)</button>
+            <button type="button" class="btn-speak" id="studySpeakBtn">🔊 Dengarkan</button>
+            <button type="button" class="btn-mic" id="studyMicBtn">🎤 Ucapkan (+10 🪙)</button>
           </div>
           <div class="mic-status" id="studyMicStatus"></div>
         </div>
         <div class="card-actions" style="margin-top:18px">
-          <button class="btn-secondary" onclick="prevStudy()">⬅ Sebelumnya</button>
-          <button class="btn-primary" onclick="nextStudy()" id="nextStudyBtn">Selanjutnya ➡</button>
+          <button type="button" class="btn-secondary" id="prevStudyBtn">⬅ Sebelumnya</button>
+          <button type="button" class="btn-primary" id="nextStudyBtn">Selanjutnya ➡</button>
         </div>
       </div>
     </section>
@@ -564,15 +555,15 @@
     <section id="playScreen" class="hidden">
       <div class="game-box">
         <div class="top-controls">
-          <button class="btn-secondary" style="flex:0" onclick="goHome()">⬅ Keluar</button>
+          <button type="button" class="btn-secondary" style="flex:0" id="playBackBtn">⬅ Keluar</button>
           <div class="progress-wrap"><div class="progress-fill" id="progressBar"></div></div>
           <div class="hearts" id="heartsDisplay">❤️❤️❤️</div>
         </div>
 
         <div class="photo-frame" id="quizPhotoBox"></div>
         <div class="voice-bar">
-          <button class="btn-speak" onclick="speakQuizAudio()">🔊 Putar Suara</button>
-          <button class="btn-mic" id="quizMicBtn" onclick="answerWithMic()">🎤 Jawab Pakai Suara</button>
+          <button type="button" class="btn-speak" id="quizSpeakBtn">🔊 Putar Suara</button>
+          <button type="button" class="btn-mic" id="quizMicBtn">🎤 Jawab Pakai Suara</button>
         </div>
         <div class="mic-status" id="quizMicStatus"></div>
 
@@ -585,31 +576,31 @@
           <div class="answer-slots" id="answerSlots"></div>
           <div class="bank-tokens" id="bankTokens"></div>
           <div class="card-actions">
-            <button class="btn-secondary" onclick="resetBuilder()">🔄 Ulangi</button>
-            <button class="btn-primary" onclick="checkBuilderAnswer()">✅ Periksa Jawaban</button>
+            <button type="button" class="btn-secondary" id="resetBuilderBtn">🔄 Ulangi</button>
+            <button type="button" class="btn-primary" id="checkBuilderBtn">✅ Periksa Jawaban</button>
           </div>
         </div>
 
         <div id="feedbackBox" class="feedback-banner hidden"></div>
-        <button id="nextQuestionBtn" class="btn-primary hidden" style="width:100%;margin-top:14px" onclick="nextQuestion()">Soal Berikutnya ➡</button>
+        <button type="button" id="nextQuestionBtn" class="btn-primary hidden" style="width:100%;margin-top:14px">Soal Berikutnya ➡</button>
       </div>
     </section>
 
-    <!-- LAYAR BONUS MINI-GAME BALLOON POP -->
+    <!-- LAYAR BONUS MINI-GAME BALON -->
     <section id="balloonScreen" class="hidden">
       <div class="game-box" style="text-align:center">
         <div class="top-controls">
           <span class="pill">🎈 Bonus Round!</span>
-          <strong style="color:#ea580c;font-size:1.1rem">⏱️ <span id="balloonTimer">15</span> detik</strong>
-          <button class="btn-secondary" style="flex:0;padding:7px 12px" onclick="endBalloonGame()">Lewati ➡</button>
+          <strong style="color:#ea580c;font-size:1.1rem">⏱️ <span id="balloonTimer">14</span> detik</strong>
+          <button type="button" class="btn-secondary" style="flex:0;padding:7px 12px" id="skipBalloonBtn">Lewati ➡</button>
         </div>
-        <h3 style="margin:4px 0" id="balloonPrompt">Pecahkan balon bertuliskan: "APPLE"!</h3>
+        <h3 style="margin:4px 0" id="balloonPrompt">Pecahkan balon!</h3>
         <p style="margin:0;color:var(--muted);font-size:0.88rem;font-weight:700">Tiap balon tepat memberimu +5 🪙 Koin Belanja!</p>
         <div class="balloon-arena" id="balloonArena"></div>
       </div>
     </section>
 
-    <!-- LAYAR HASIL & REWARD SERTIFIKAT SUBTEST (.JPG) -->
+    <!-- LAYAR HASIL & REWARD SERTIFIKAT -->
     <section id="resultScreen" class="hidden">
       <div class="game-box" style="text-align:center">
         <div style="font-size:3.8rem" id="resultIcon">🏆</div>
@@ -619,11 +610,11 @@
         <div id="certificateRewardArea" class="reward-card hidden">
           <h3 style="margin:0 0 4px;color:#b45309">🎁 Sertifikat Digital Subtest Siap Diunduh!</h3>
           <p style="margin:0;font-size:0.88rem;color:#64748b;font-weight:700">
-            Avatar & stiker pilihanmu di <strong>Toko</strong> otomatis terpasang di sertifikat ini!
+            Avatar & stiker pilihanmu di menu <strong>Toko & Maskot</strong> otomatis terpasang di sertifikat ini!
           </p>
           <div class="name-input-group">
-            <input type="text" id="playerNameInput" maxlength="28" placeholder="Ketik namamu di sini..." oninput="updateCertificatePreview()" />
-            <button class="btn-success" onclick="downloadCertificateJPG()">⬇ Unduh Sertifikat (.JPG)</button>
+            <input type="text" id="playerNameInput" maxlength="28" placeholder="Ketik namamu di sini..." />
+            <button type="button" class="btn-success" id="downloadCertBtn">⬇ Unduh Sertifikat (.JPG)</button>
           </div>
           <div class="cert-preview-wrap">
             <canvas id="certCanvas" width="1000" height="700"></canvas>
@@ -631,19 +622,19 @@
         </div>
 
         <div class="card-actions" style="margin-top:18px">
-          <button class="btn-secondary" onclick="goHome()">🏠 Menu Utama</button>
-          <button class="btn-primary" onclick="replayCurrentLevel()">🔁 Main Lagi</button>
+          <button type="button" class="btn-secondary" id="resultHomeBtn">🏠 Menu Utama</button>
+          <button type="button" class="btn-primary" id="replayLevelBtn">🔁 Main Lagi</button>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- FLOATING COMPANION PET -->
-  <div class="pet-widget" onclick="petEncourage()" title="Klik maskot untuk semangat!">
+  <!-- MASKOT PENDAMPING -->
+  <div class="pet-widget" id="petWidget" title="Klik maskot untuk semangat!">
     <div class="pet-avatar-circle" id="petWidgetIcon">🥚</div>
     <div>
-      <span class="pet-stage-tag" id="petWidgetTitle">Kucing Astronot • Lv.1</span>
-      <div class="pet-speech" id="petWidgetSpeech">Hai! Yuk mulai petualangan Bahasa Inggris!</div>
+      <span class="pet-stage-tag" id="petWidgetTitle">Kucing Astronot • Tahap Telur</span>
+      <div class="pet-speech" id="petWidgetSpeech">Hai! Klik kartu Level untuk mulai bermain!</div>
     </div>
   </div>
 
@@ -652,1203 +643,1428 @@
   </footer>
 
   <script>
-    // ================= DATA KURIKULUM LEVEL 1 - 6 =================
-    const LEVELS = [
-      {
-        level: 1,
-        badgeIcon: "🐾",
-        rankName: "Starter Explorer",
-        certTheme: { bg1: "#e0f2fe", bg2: "#bae6fd", border: "#0284c7", accent: "#0369a1", ribbon: "#f59e0b" },
-        color: "#e0f2fe",
-        textColor: "#0369a1",
-        title: "Subtest: Animals & Fruits",
-        desc: "Pola Tap & Listen: Mengenal foto hewan dan buah-buahan nyata beserta pelafalan bahasa Inggrisnya.",
-        items: [
-          { idKey: "l1_1", wiki: "Apple", emoji: "🍎", en: "Apple", id: "Apel", mode: "mcq", q: "Buah segar apakah yang ada pada foto?", options: ["Apple", "Banana", "Orange", "Grape"], answer: "Apple" },
-          { idKey: "l1_2", wiki: "Cat", emoji: "🐱", en: "Cat", id: "Kucing", mode: "mcq", q: "Hewan lucu apakah pada foto ini?", options: ["Dog", "Cat", "Bird", "Fish"], answer: "Cat" },
-          { idKey: "l1_3", wiki: "Banana", emoji: "🍌", en: "Banana", id: "Pisang", mode: "mcq", q: "Pilih bahasa Inggris dari buah berwarna kuning ini:", options: ["Banana", "Apple", "Papaya", "Melon"], answer: "Banana" },
-          { idKey: "l1_4", wiki: "Dog", emoji: "🐶", en: "Dog", id: "Anjing", mode: "mcq", q: "Dengarkan suaranya! Hewan apakah ini?", options: ["Rabbit", "Cat", "Dog", "Duck"], answer: "Dog" },
-          { idKey: "l1_5", wiki: "Elephant", emoji: "🐘", en: "Elephant", id: "Gajah", mode: "mcq", q: "Hewan besar berbelalai panjang ini disebut...", options: ["Tiger", "Elephant", "Monkey", "Horse"], answer: "Elephant" },
-          { idKey: "l1_6", wiki: "Strawberry", emoji: "🍓", en: "Strawberry", id: "Stroberi", mode: "mcq", q: "Apa bahasa Inggris dari buah merah berbintik ini?", options: ["Strawberry", "Mango", "Coconut", "Lemon"], answer: "Strawberry" }
-        ]
-      },
-      {
-        level: 2,
-        badgeIcon: "🎒",
-        rankName: "Daily Object Finder",
-        certTheme: { bg1: "#dcfce7", bg2: "#bbf7d0", border: "#16a34a", accent: "#15803d", ribbon: "#eab308" },
-        color: "#dcfce7",
-        textColor: "#15803d",
-        title: "Subtest: Things Around Us",
-        desc: "Pola Picture Match: Mencocokkan foto benda-benda di sekitar rumah dan perlengkapan belajar.",
-        items: [
-          { idKey: "l2_1", wiki: "Pencil", emoji: "✏️", en: "Pencil", id: "Pensil", mode: "mcq", q: "Alat tulis pada foto ini dalam bahasa Inggris adalah...", options: ["Pencil", "Ruler", "Eraser", "Bag"], answer: "Pencil" },
-          { idKey: "l2_2", wiki: "Book", emoji: "📖", en: "Book", id: "Buku", mode: "mcq", q: "Benda untuk membaca cerita dan ilmu pengetahuan:", options: ["Chair", "Table", "Book", "Shoes"], answer: "Book" },
-          { idKey: "l2_3", wiki: "Backpack", emoji: "🎒", en: "Backpack", id: "Tas Ransel", mode: "mcq", q: "Tas punggung pada gambar ini disebut...", options: ["Hat", "Backpack", "Window", "Pillow"], answer: "Backpack" },
-          { idKey: "l2_4", wiki: "Chair", emoji: "🪑", en: "Chair", id: "Kursi", mode: "mcq", q: "Benda tempat kita duduk dengan rapi adalah...", options: ["Chair", "Door", "Lamp", "Clock"], answer: "Chair" },
-          { idKey: "l2_5", wiki: "Scissors", emoji: "✂️", en: "Scissors", id: "Gunting", mode: "mcq", q: "Alat untuk menggunting kertas ini bernama...", options: ["Paper", "Scissors", "Crayon", "Bottle"], answer: "Scissors" },
-          { idKey: "l2_6", wiki: "Shoe", emoji: "👟", en: "Shoes", id: "Sepatu", mode: "mcq", q: "Alas kaki yang melindungi kaki saat berjalan:", options: ["Socks", "Shirt", "Shoes", "Glasses"], answer: "Shoes" }
-        ]
-      },
-      {
-        level: 3,
-        badgeIcon: "🐝",
-        rankName: "Spelling Bee Champion",
-        certTheme: { bg1: "#fef9c3", bg2: "#fde68a", border: "#d97706", accent: "#b45309", ribbon: "#ef4444" },
-        color: "#fef3c7",
-        textColor: "#b45309",
-        title: "Subtest: Food & Nature Spelling",
-        desc: "Pola Spelling Bee: Menyusun kepingan huruf acak menjadi ejaan kosakata makanan dan alam yang tepat!",
-        items: [
-          { idKey: "l3_1", wiki: "Milk", emoji: "🥛", en: "MILK", id: "Susu", mode: "spell", q: "Susun huruf menjadi bahasa Inggris dari 'Susu':", tokens: ["M", "I", "L", "K"], answer: "MILK" },
-          { idKey: "l3_2", wiki: "Bread", emoji: "🍞", en: "BREAD", id: "Roti", mode: "spell", q: "Eja kata bahasa Inggris untuk 'Roti' pada foto:", tokens: ["B", "R", "E", "A", "D"], answer: "BREAD" },
-          { idKey: "l3_3", wiki: "Rain", emoji: "🌧️", en: "RAIN", id: "Hujan", mode: "spell", q: "Titik-titik air yang turun dari langit disebut...", tokens: ["R", "A", "I", "N"], answer: "RAIN" },
-          { idKey: "l3_4", wiki: "Pizza", emoji: "🍕", en: "PIZZA", id: "Pizza", mode: "spell", q: "Susun huruf nama hidangan lezat ini:", tokens: ["P", "I", "Z", "Z", "A"], answer: "PIZZA" },
-          { idKey: "l3_5", wiki: "Umbrella", emoji: "☂️", en: "Umbrella", id: "Payung", mode: "mcq", q: "Saat turun hujan, kita memakai benda ini:", options: ["Umbrella", "Blanket", "Helmet", "Jacket"], answer: "Umbrella" },
-          { idKey: "l3_6", wiki: "Rainbow", emoji: "🌈", en: "Rainbow", id: "Pelangi", mode: "mcq", q: "Lengkungan warna-warni indah di langit adalah...", options: ["Cloud", "Rainbow", "Thunder", "Sunshine"], answer: "Rainbow" }
-        ]
-      },
-      {
-        level: 4,
-        badgeIcon: "🕵️",
-        rankName: "World Detective",
-        certTheme: { bg1: "#fce7f3", bg2: "#fbcfe8", border: "#db2777", accent: "#9d174d", ribbon: "#8b5cf6" },
-        color: "#fce7f3",
-        textColor: "#9d174d",
-        title: "Subtest: Jobs & Public Places",
-        desc: "Pola Detective Quiz: Menebak berbagai jenis profesi hebat, tempat umum, dan benda penunjuk waktu.",
-        items: [
-          { idKey: "l4_1", wiki: "Firefighter", emoji: "🚒", en: "Firefighter", id: "Pemadam Kebakaran", mode: "mcq", q: "Petugas pemberani yang memadamkan kebakaran adalah...", options: ["Firefighter", "Farmer", "Dentist", "Pilot"], answer: "Firefighter" },
-          { idKey: "l4_2", wiki: "Hospital", emoji: "🏥", en: "Hospital", id: "Rumah Sakit", mode: "mcq", q: "Tempat dokter dan perawat merawat orang sakit:", options: ["Market", "Hospital", "Bakery", "Airport"], answer: "Hospital" },
-          { idKey: "l4_3", wiki: "Library", emoji: "📚", en: "Library", id: "Perpustakaan", mode: "mcq", q: "Where can we read and borrow many books?", options: ["Kitchen", "Library", "Stadium", "Garage"], answer: "Library" },
-          { idKey: "l4_4", wiki: "Chef", emoji: "👨‍🍳", en: "Chef", id: "Koki Juru Masak", mode: "mcq", q: "A person who cooks delicious meals is called a...", options: ["Chef", "Driver", "Singer", "Police"], answer: "Chef" },
-          { idKey: "l4_5", wiki: "Astronaut", emoji: "👨‍🚀", en: "Astronaut", id: "Astronot", mode: "mcq", q: "Siapakah penjelajah yang terbang ke luar angkasa?", options: ["Sailor", "Astronaut", "Teacher", "Painter"], answer: "Astronaut" },
-          { idKey: "l4_6", wiki: "Alarm_clock", emoji: "⏰", en: "Clock", id: "Jam", mode: "mcq", q: "We look at the ___ to check the time.", options: ["Mirror", "Clock", "Carpet", "Wallet"], answer: "Clock" }
-        ]
-      },
-      {
-        level: 5,
-        badgeIcon: "🚀",
-        rankName: "Sentence Architect",
-        certTheme: { bg1: "#ede9fe", bg2: "#ddd6fe", border: "#7c3aed", accent: "#5b21b6", ribbon: "#ec4899" },
-        color: "#ede9fe",
-        textColor: "#5b21b6",
-        title: "Subtest: Action & Sentence Builder",
-        desc: "Pola Sentence Builder: Merangkai kepingan kata menjadi kalimat bahasa Inggris utuh sesuai foto situasi.",
-        items: [
-          { idKey: "l5_1", wiki: "Bicycle", emoji: "🚲", en: "I ride a bicycle", id: "Saya mengendarai sepeda", mode: "sentence", q: "Susun menjadi kalimat: 'Saya mengendarai sepeda'", tokens: ["I", "ride", "a", "bicycle"], answer: "I ride a bicycle" },
-          { idKey: "l5_2", wiki: "Airplane", emoji: "✈️", en: "The airplane flies fast", id: "Pesawat itu terbang cepat", mode: "sentence", q: "Susun menjadi kalimat: 'Pesawat itu terbang cepat'", tokens: ["The", "airplane", "flies", "fast"], answer: "The airplane flies fast" },
-          { idKey: "l5_3", wiki: "Giraffe", emoji: "🦒", en: "A giraffe has a long neck", id: "Jerapah memiliki leher panjang", mode: "sentence", q: "Susun kalimat deskripsi hewan pada foto:", tokens: ["A giraffe", "has", "a long", "neck"], answer: "A giraffe has a long neck" },
-          { idKey: "l5_4", wiki: "Guitar", emoji: "🎸", en: "She plays the guitar", id: "Dia bermain gitar", mode: "sentence", q: "Susun menjadi kalimat: 'Dia bermain gitar'", tokens: ["She", "plays", "the", "guitar"], answer: "She plays the guitar" },
-          { idKey: "l5_5", wiki: "Train", emoji: "🚆", en: "We go by train", id: "Kami pergi naik kereta api", mode: "sentence", q: "Susun kalimat: 'Kami pergi naik kereta api'", tokens: ["We", "go", "by", "train"], answer: "We go by train" }
-        ]
-      },
-      {
-        level: 6,
-        badgeIcon: "👑",
-        rankName: "Grand Story Master",
-        certTheme: { bg1: "#ffedd5", bg2: "#fed7aa", border: "#ea580c", accent: "#9a3412", ribbon: "#2563eb" },
-        color: "#ffedd5",
-        textColor: "#9a3412",
-        title: "Subtest: Conversation & Stories",
-        desc: "Pola Interactive Roleplay: Menyelesaikan percakapan sopan sehari-hari dan cerita pengalaman seru.",
-        items: [
-          { idKey: "l6_1", wiki: "Beach", emoji: "🏖️", en: "We went to the beach yesterday", id: "Kami pergi ke pantai kemarin", mode: "mcq", q: "Lengkapi cerita: 'Last Sunday, my family ___ to the beach.'", options: ["went", "go", "goes", "going"], answer: "went" },
-          { idKey: "l6_2", wiki: "Museum", emoji: "🏛️", en: "They visited the museum", id: "Mereka mengunjungi museum", mode: "sentence", q: "Susun kalimat cerita: 'Mereka mengunjungi museum'", tokens: ["They", "visited", "the", "museum"], answer: "They visited the museum" },
-          { idKey: "l6_3", wiki: "Restaurant", emoji: "🍽️", en: "May I see the menu, please?", id: "Bolehkah saya melihat menunya?", mode: "mcq", q: "Ungkapan sopan saat ingin melihat daftar menu di restoran:", options: ["May I see the menu, please?", "Where is my pillow?", "Open the sepatu now!", "Good night sun!"], answer: "May I see the menu, please?" },
-          { idKey: "l6_4", wiki: "Train_station", emoji: "🚉", en: "Excuse me, where is the train station?", id: "Permisi, di mana stasiun kereta?", mode: "mcq", q: "Kalimat sopan saat ingin menanyakan arah ke stasiun kereta:", options: ["Excuse me, where is the train station?", "What is your favorite color?", "Happy birthday friend!", "I have two apples."], answer: "Excuse me, where is the train station?" },
-          { idKey: "l6_5", wiki: "Mountain", emoji: "⛰️", en: "We climbed a high mountain", id: "Kami mendaki gunung yang tinggi", mode: "sentence", q: "Susun kalimat petualangan: 'Kami mendaki gunung yang tinggi'", tokens: ["We", "climbed", "a high", "mountain"], answer: "We climbed a high mountain" }
-        ]
-      }
-    ];
-
-    // DATA MASKOT & ITEM TOKO SERTIFIKAT
-    const PETS = [
-      { id: "cat", name: "Kucing Astronot", stages: ["🥚", "🐱", "😺🚀", "🐱👑"] },
-      { id: "bunny", name: "Kelinci Detektif", stages: ["🥚", "🐰", "🐰🔍", "🐰👑"] },
-      { id: "dragon", name: "Naga Ceria", stages: ["🥚", "🦎", "🐲✨", "🐉👑"] }
-    ];
-
-    const SHOP_AVATARS = [
-      { id: "av_star", icon: "🌟", name: "Bintang Ceria", cost: 0 },
-      { id: "av_fox", icon: "🦊", name: "Rubah Pintar", cost: 25 },
-      { id: "av_panda", icon: "🐼", name: "Panda Juara", cost: 35 },
-      { id: "av_unicorn", icon: "🦄", name: "Unicorn Ajaib", cost: 50 },
-      { id: "av_astro", icon: "🧑‍🚀", name: "Kapten Angkasa", cost: 65 }
-    ];
-
-    const SHOP_STICKERS = [
-      { id: "st_rainbow", icon: "🌈", name: "Pelangi", cost: 0 },
-      { id: "st_rocket", icon: "🚀", name: "Roket Cepat", cost: 20 },
-      { id: "st_trophy", icon: "🏆", name: "Piala Emas", cost: 35 },
-      { id: "st_dino", icon: "🦖", name: "Dino Lucu", cost: 45 },
-      { id: "st_diamond", icon: "💎", name: "Berlian Biru", cost: 60 }
-    ];
-
-    const SHOP_FRAMES = [
-      { id: "fr_classic", icon: "🎨", name: "Pastel Klasik", cost: 0 },
-      { id: "fr_gold", icon: "✨", name: "Royal Emas", cost: 45 },
-      { id: "fr_party", icon: "🎉", name: "Pelangi Pesta", cost: 70 }
-    ];
-
-    // STATE PENYIMPANAN LOKAL
-    const photoCache = {};
-    let savedStars = JSON.parse(localStorage.getItem("kabella_en_stars") || "{}");
-    let savedCoins = parseInt(localStorage.getItem("kabella_en_coins") || "20", 10);
-    let savedPlayerName = localStorage.getItem("kabella_player_name") || "";
-    let unlockedAlbum = JSON.parse(localStorage.getItem("kabella_en_album") || "[]");
-    let ownedShop = JSON.parse(localStorage.getItem("kabella_en_shop") || '["av_star","st_rainbow","fr_classic"]');
-    let equipped = JSON.parse(localStorage.getItem("kabella_en_equip") || '{"pet":"cat","avatar":"av_star","sticker":"st_rainbow","frame":"fr_classic"}');
-
-    let currentLevelObj = null;
-    let studyIndex = 0;
-    let quizIndex = 0;
-    let hearts = 3;
-    let correctCount = 0;
-    let lastEarnedStars = 3;
-    let selectedTokens = [];
-    let answered = false;
-
-    // AUDIO TUNGGAL & MUSIK LATAR LEMBUT
-    let audioCtx = null;
-    let musicPlaying = false;
-    let musicTimer = null;
-    let melodyStep = 0;
-    const MELODY_NOTES = [523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 523.25, 392.00];
-
-    function getAudioCtx() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      if (audioCtx.state === "suspended") audioCtx.resume();
-      return audioCtx;
-    }
-
-    function playTone(type) {
-      try {
-        const ctx = getAudioCtx();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        if (type === "win") {
-          osc.frequency.setValueAtTime(523, ctx.currentTime);
-          osc.frequency.setValueAtTime(659, ctx.currentTime + 0.09);
-          osc.frequency.setValueAtTime(784, ctx.currentTime + 0.18);
-          gain.gain.setValueAtTime(0.13, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.42);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.42);
-        } else if (type === "pop") {
-          osc.frequency.setValueAtTime(420, ctx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
-          gain.gain.setValueAtTime(0.16, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.14);
-        } else if (type === "fanfare") {
-          [523, 659, 784, 1046].forEach((f, idx) => osc.frequency.setValueAtTime(f, ctx.currentTime + idx * 0.11));
-          gain.gain.setValueAtTime(0.15, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.65);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.65);
-        } else {
-          osc.frequency.setValueAtTime(240, ctx.currentTime);
-          osc.frequency.setValueAtTime(185, ctx.currentTime + 0.14);
-          gain.gain.setValueAtTime(0.12, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.32);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.32);
+    (function () {
+      // PENYIMPANAN AMAN ANTI-CRASH (TETAP JALAN WALAU COOKIE/STORAGE DIBLOKIR BROWSER)
+      const memoryFallback = {};
+      function safeGet(key, defaultVal) {
+        try {
+          const val = window.localStorage.getItem(key);
+          return val !== null ? val : defaultVal;
+        } catch (err) {
+          return memoryFallback[key] !== undefined ? memoryFallback[key] : defaultVal;
         }
-      } catch (e) {}
-    }
+      }
+      function safeSet(key, val) {
+        memoryFallback[key] = val;
+        try {
+          window.localStorage.setItem(key, val);
+        } catch (err) {}
+      }
+      function safeParse(str, fallbackObj) {
+        try {
+          const parsed = JSON.parse(str);
+          return parsed && typeof parsed === "object" ? parsed : fallbackObj;
+        } catch (err) {
+          return fallbackObj;
+        }
+      }
 
-    function toggleMusic() {
-      musicPlaying = !musicPlaying;
-      document.getElementById("musicBtn").textContent = musicPlaying ? "🎵 Musik: ON" : "🎵 Musik: OFF";
-      if (musicPlaying) {
-        getAudioCtx();
-        musicTimer = setInterval(() => {
-          if (!musicPlaying) return;
-          try {
-            const ctx = getAudioCtx();
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = "triangle";
-            osc.frequency.setValueAtTime(MELODY_NOTES[melodyStep % MELODY_NOTES.length], ctx.currentTime);
-            melodyStep++;
-            gain.gain.setValueAtTime(0.03, ctx.currentTime);
+      // KURIKULUM LEVEL 1 - 6
+      const LEVELS = [
+        {
+          level: 1,
+          badgeIcon: "🐾",
+          rankName: "Starter Explorer",
+          certTheme: { bg1: "#e0f2fe", bg2: "#bae6fd", border: "#0284c7", accent: "#0369a1", ribbon: "#f59e0b" },
+          color: "#e0f2fe",
+          textColor: "#0369a1",
+          title: "Subtest: Animals & Fruits",
+          desc: "Pola Tap & Listen: Mengenal foto hewan dan buah-buahan nyata beserta pelafalan bahasa Inggrisnya.",
+          items: [
+            { idKey: "l1_1", wiki: "Apple", emoji: "🍎", en: "Apple", id: "Apel", mode: "mcq", q: "Buah segar apakah yang ada pada foto?", options: ["Apple", "Banana", "Orange", "Grape"], answer: "Apple" },
+            { idKey: "l1_2", wiki: "Cat", emoji: "🐱", en: "Cat", id: "Kucing", mode: "mcq", q: "Hewan lucu apakah pada foto ini?", options: ["Dog", "Cat", "Bird", "Fish"], answer: "Cat" },
+            { idKey: "l1_3", wiki: "Banana", emoji: "🍌", en: "Banana", id: "Pisang", mode: "mcq", q: "Pilih bahasa Inggris dari buah berwarna kuning ini:", options: ["Banana", "Apple", "Papaya", "Melon"], answer: "Banana" },
+            { idKey: "l1_4", wiki: "Dog", emoji: "🐶", en: "Dog", id: "Anjing", mode: "mcq", q: "Dengarkan suaranya! Hewan apakah ini?", options: ["Rabbit", "Cat", "Dog", "Duck"], answer: "Dog" },
+            { idKey: "l1_5", wiki: "Elephant", emoji: "🐘", en: "Elephant", id: "Gajah", mode: "mcq", q: "Hewan besar berbelalai panjang ini disebut...", options: ["Tiger", "Elephant", "Monkey", "Horse"], answer: "Elephant" },
+            { idKey: "l1_6", wiki: "Strawberry", emoji: "🍓", en: "Strawberry", id: "Stroberi", mode: "mcq", q: "Apa bahasa Inggris dari buah merah berbintik ini?", options: ["Strawberry", "Mango", "Coconut", "Lemon"], answer: "Strawberry" }
+          ]
+        },
+        {
+          level: 2,
+          badgeIcon: "🎒",
+          rankName: "Daily Object Finder",
+          certTheme: { bg1: "#dcfce7", bg2: "#bbf7d0", border: "#16a34a", accent: "#15803d", ribbon: "#eab308" },
+          color: "#dcfce7",
+          textColor: "#15803d",
+          title: "Subtest: Things Around Us",
+          desc: "Pola Picture Match: Mencocokkan foto benda-benda di sekitar rumah dan perlengkapan belajar.",
+          items: [
+            { idKey: "l2_1", wiki: "Pencil", emoji: "✏️", en: "Pencil", id: "Pensil", mode: "mcq", q: "Alat tulis pada foto ini dalam bahasa Inggris adalah...", options: ["Pencil", "Ruler", "Eraser", "Bag"], answer: "Pencil" },
+            { idKey: "l2_2", wiki: "Book", emoji: "📖", en: "Book", id: "Buku", mode: "mcq", q: "Benda untuk membaca cerita dan ilmu pengetahuan:", options: ["Chair", "Table", "Book", "Shoes"], answer: "Book" },
+            { idKey: "l2_3", wiki: "Backpack", emoji: "🎒", en: "Backpack", id: "Tas Ransel", mode: "mcq", q: "Tas punggung pada gambar ini disebut...", options: ["Hat", "Backpack", "Window", "Pillow"], answer: "Backpack" },
+            { idKey: "l2_4", wiki: "Chair", emoji: "🪑", en: "Chair", id: "Kursi", mode: "mcq", q: "Benda tempat kita duduk dengan rapi adalah...", options: ["Chair", "Door", "Lamp", "Clock"], answer: "Chair" },
+            { idKey: "l2_5", wiki: "Scissors", emoji: "✂️", en: "Scissors", id: "Gunting", mode: "mcq", q: "Alat untuk menggunting kertas ini bernama...", options: ["Paper", "Scissors", "Crayon", "Bottle"], answer: "Scissors" },
+            { idKey: "l2_6", wiki: "Shoe", emoji: "👟", en: "Shoes", id: "Sepatu", mode: "mcq", q: "Alas kaki yang melindungi kaki saat berjalan:", options: ["Socks", "Shirt", "Shoes", "Glasses"], answer: "Shoes" }
+          ]
+        },
+        {
+          level: 3,
+          badgeIcon: "🐝",
+          rankName: "Spelling Bee Champion",
+          certTheme: { bg1: "#fef9c3", bg2: "#fde68a", border: "#d97706", accent: "#b45309", ribbon: "#ef4444" },
+          color: "#fef3c7",
+          textColor: "#b45309",
+          title: "Subtest: Food & Nature Spelling",
+          desc: "Pola Spelling Bee: Menyusun kepingan huruf acak menjadi ejaan kosakata makanan dan alam yang tepat!",
+          items: [
+            { idKey: "l3_1", wiki: "Milk", emoji: "🥛", en: "MILK", id: "Susu", mode: "spell", q: "Susun huruf menjadi bahasa Inggris dari 'Susu':", tokens: ["M", "I", "L", "K"], answer: "MILK" },
+            { idKey: "l3_2", wiki: "Bread", emoji: "🍞", en: "BREAD", id: "Roti", mode: "spell", q: "Eja kata bahasa Inggris untuk 'Roti' pada foto:", tokens: ["B", "R", "E", "A", "D"], answer: "BREAD" },
+            { idKey: "l3_3", wiki: "Rain", emoji: "🌧️", en: "RAIN", id: "Hujan", mode: "spell", q: "Titik-titik air yang turun dari langit disebut...", tokens: ["R", "A", "I", "N"], answer: "RAIN" },
+            { idKey: "l3_4", wiki: "Pizza", emoji: "🍕", en: "PIZZA", id: "Pizza", mode: "spell", q: "Susun huruf nama hidangan lezat ini:", tokens: ["P", "I", "Z", "Z", "A"], answer: "PIZZA" },
+            { idKey: "l3_5", wiki: "Umbrella", emoji: "☂️", en: "Umbrella", id: "Payung", mode: "mcq", q: "Saat turun hujan, kita memakai benda ini:", options: ["Umbrella", "Blanket", "Helmet", "Jacket"], answer: "Umbrella" },
+            { idKey: "l3_6", wiki: "Rainbow", emoji: "🌈", en: "Rainbow", id: "Pelangi", mode: "mcq", q: "Lengkungan warna-warni indah di langit adalah...", options: ["Cloud", "Rainbow", "Thunder", "Sunshine"], answer: "Rainbow" }
+          ]
+        },
+        {
+          level: 4,
+          badgeIcon: "🕵️",
+          rankName: "World Detective",
+          certTheme: { bg1: "#fce7f3", bg2: "#fbcfe8", border: "#db2777", accent: "#9d174d", ribbon: "#8b5cf6" },
+          color: "#fce7f3",
+          textColor: "#9d174d",
+          title: "Subtest: Jobs & Public Places",
+          desc: "Pola Detective Quiz: Menebak berbagai jenis profesi hebat, tempat umum, dan benda penunjuk waktu.",
+          items: [
+            { idKey: "l4_1", wiki: "Firefighter", emoji: "🚒", en: "Firefighter", id: "Pemadam Kebakaran", mode: "mcq", q: "Petugas pemberani yang memadamkan kebakaran adalah...", options: ["Firefighter", "Farmer", "Dentist", "Pilot"], answer: "Firefighter" },
+            { idKey: "l4_2", wiki: "Hospital", emoji: "🏥", en: "Hospital", id: "Rumah Sakit", mode: "mcq", q: "Tempat dokter dan perawat merawat orang sakit:", options: ["Market", "Hospital", "Bakery", "Airport"], answer: "Hospital" },
+            { idKey: "l4_3", wiki: "Library", emoji: "📚", en: "Library", id: "Perpustakaan", mode: "mcq", q: "Where can we read and borrow many books?", options: ["Kitchen", "Library", "Stadium", "Garage"], answer: "Library" },
+            { idKey: "l4_4", wiki: "Chef", emoji: "👨‍🍳", en: "Chef", id: "Koki Juru Masak", mode: "mcq", q: "A person who cooks delicious meals is called a...", options: ["Chef", "Driver", "Singer", "Police"], answer: "Chef" },
+            { idKey: "l4_5", wiki: "Astronaut", emoji: "👨‍🚀", en: "Astronaut", id: "Astronot", mode: "mcq", q: "Siapakah penjelajah yang terbang ke luar angkasa?", options: ["Sailor", "Astronaut", "Teacher", "Painter"], answer: "Astronaut" },
+            { idKey: "l4_6", wiki: "Alarm_clock", emoji: "⏰", en: "Clock", id: "Jam", mode: "mcq", q: "We look at the ___ to check the time.", options: ["Mirror", "Clock", "Carpet", "Wallet"], answer: "Clock" }
+          ]
+        },
+        {
+          level: 5,
+          badgeIcon: "🚀",
+          rankName: "Sentence Architect",
+          certTheme: { bg1: "#ede9fe", bg2: "#ddd6fe", border: "#7c3aed", accent: "#5b21b6", ribbon: "#ec4899" },
+          color: "#ede9fe",
+          textColor: "#5b21b6",
+          title: "Subtest: Action & Sentence Builder",
+          desc: "Pola Sentence Builder: Merangkai kepingan kata menjadi kalimat bahasa Inggris utuh sesuai foto situasi.",
+          items: [
+            { idKey: "l5_1", wiki: "Bicycle", emoji: "🚲", en: "I ride a bicycle", id: "Saya mengendarai sepeda", mode: "sentence", q: "Susun menjadi kalimat: 'Saya mengendarai sepeda'", tokens: ["I", "ride", "a", "bicycle"], answer: "I ride a bicycle" },
+            { idKey: "l5_2", wiki: "Airplane", emoji: "✈️", en: "The airplane flies fast", id: "Pesawat itu terbang cepat", mode: "sentence", q: "Susun menjadi kalimat: 'Pesawat itu terbang cepat'", tokens: ["The", "airplane", "flies", "fast"], answer: "The airplane flies fast" },
+            { idKey: "l5_3", wiki: "Giraffe", emoji: "🦒", en: "A giraffe has a long neck", id: "Jerapah memiliki leher panjang", mode: "sentence", q: "Susun kalimat deskripsi hewan pada foto:", tokens: ["A giraffe", "has", "a long", "neck"], answer: "A giraffe has a long neck" },
+            { idKey: "l5_4", wiki: "Guitar", emoji: "🎸", en: "She plays the guitar", id: "Dia bermain gitar", mode: "sentence", q: "Susun menjadi kalimat: 'Dia bermain gitar'", tokens: ["She", "plays", "the", "guitar"], answer: "She plays the guitar" },
+            { idKey: "l5_5", wiki: "Train", emoji: "🚆", en: "We go by train", id: "Kami pergi naik kereta api", mode: "sentence", q: "Susun kalimat: 'Kami pergi naik kereta api'", tokens: ["We", "go", "by", "train"], answer: "We go by train" }
+          ]
+        },
+        {
+          level: 6,
+          badgeIcon: "👑",
+          rankName: "Grand Story Master",
+          certTheme: { bg1: "#ffedd5", bg2: "#fed7aa", border: "#ea580c", accent: "#9a3412", ribbon: "#2563eb" },
+          color: "#ffedd5",
+          textColor: "#9a3412",
+          title: "Subtest: Conversation & Stories",
+          desc: "Pola Interactive Roleplay: Menyelesaikan percakapan sopan sehari-hari dan cerita pengalaman seru.",
+          items: [
+            { idKey: "l6_1", wiki: "Beach", emoji: "🏖️", en: "We went to the beach yesterday", id: "Kami pergi ke pantai kemarin", mode: "mcq", q: "Lengkapi cerita: 'Last Sunday, my family ___ to the beach.'", options: ["went", "go", "goes", "going"], answer: "went" },
+            { idKey: "l6_2", wiki: "Museum", emoji: "🏛️", en: "They visited the museum", id: "Mereka mengunjungi museum", mode: "sentence", q: "Susun kalimat cerita: 'Mereka mengunjungi museum'", tokens: ["They", "visited", "the", "museum"], answer: "They visited the museum" },
+            { idKey: "l6_3", wiki: "Restaurant", emoji: "🍽️", en: "May I see the menu, please?", id: "Bolehkah saya melihat menunya?", mode: "mcq", q: "Ungkapan sopan saat ingin melihat daftar menu di restoran:", options: ["May I see the menu, please?", "Where is my pillow?", "Open the sepatu now!", "Good night sun!"], answer: "May I see the menu, please?" },
+            { idKey: "l6_4", wiki: "Train_station", emoji: "🚉", en: "Excuse me, where is the train station?", id: "Permisi, di mana stasiun kereta?", mode: "mcq", q: "Kalimat sopan saat ingin menanyakan arah ke stasiun kereta:", options: ["Excuse me, where is the train station?", "What is your favorite color?", "Happy birthday friend!", "I have two apples."], answer: "Excuse me, where is the train station?" },
+            { idKey: "l6_5", wiki: "Mountain", emoji: "⛰️", en: "We climbed a high mountain", id: "Kami mendaki gunung yang tinggi", mode: "sentence", q: "Susun kalimat petualangan: 'Kami mendaki gunung yang tinggi'", tokens: ["We", "climbed", "a high", "mountain"], answer: "We climbed a high mountain" }
+          ]
+        }
+      ];
+
+      const PETS = [
+        { id: "cat", name: "Kucing Astronot", stages: ["🥚", "🐱", "😺🚀", "🐱👑"] },
+        { id: "bunny", name: "Kelinci Detektif", stages: ["🥚", "🐰", "🐰🔍", "🐰👑"] },
+        { id: "dragon", name: "Naga Ceria", stages: ["🥚", "🦎", "🐲✨", "🐉👑"] }
+      ];
+
+      const SHOP_AVATARS = [
+        { id: "av_star", icon: "🌟", name: "Bintang Ceria", cost: 0 },
+        { id: "av_fox", icon: "🦊", name: "Rubah Pintar", cost: 25 },
+        { id: "av_panda", icon: "🐼", name: "Panda Juara", cost: 35 },
+        { id: "av_unicorn", icon: "🦄", name: "Unicorn Ajaib", cost: 50 },
+        { id: "av_astro", icon: "🧑‍🚀", name: "Kapten Angkasa", cost: 65 }
+      ];
+
+      const SHOP_STICKERS = [
+        { id: "st_rainbow", icon: "🌈", name: "Pelangi", cost: 0 },
+        { id: "st_rocket", icon: "🚀", name: "Roket Cepat", cost: 20 },
+        { id: "st_trophy", icon: "🏆", name: "Piala Emas", cost: 35 },
+        { id: "st_dino", icon: "🦖", name: "Dino Lucu", cost: 45 },
+        { id: "st_diamond", icon: "💎", name: "Berlian Biru", cost: 60 }
+      ];
+
+      const SHOP_FRAMES = [
+        { id: "fr_classic", icon: "🎨", name: "Pastel Klasik", cost: 0 },
+        { id: "fr_gold", icon: "✨", name: "Royal Emas", cost: 45 },
+        { id: "fr_party", icon: "🎉", name: "Pelangi Pesta", cost: 70 }
+      ];
+
+      const photoCache = {};
+      let savedStars = safeParse(safeGet("kabella_en_stars", "{}"), {});
+      let savedCoins = parseInt(safeGet("kabella_en_coins", "20"), 10);
+      if (isNaN(savedCoins)) savedCoins = 20;
+      let savedPlayerName = safeGet("kabella_player_name", "");
+      let unlockedAlbum = safeParse(safeGet("kabella_en_album", "[]"), []);
+      if (!Array.isArray(unlockedAlbum)) unlockedAlbum = [];
+      let ownedShop = safeParse(safeGet("kabella_en_shop", '["av_star","st_rainbow","fr_classic"]'), ["av_star", "st_rainbow", "fr_classic"]);
+      if (!Array.isArray(ownedShop)) ownedShop = ["av_star", "st_rainbow", "fr_classic"];
+      let equipped = safeParse(
+        safeGet("kabella_en_equip", '{"pet":"cat","avatar":"av_star","sticker":"st_rainbow","frame":"fr_classic"}'),
+        { pet: "cat", avatar: "av_star", sticker: "st_rainbow", frame: "fr_classic" }
+      );
+
+      let currentLevelObj = LEVELS[0];
+      let studyIndex = 0;
+      let quizIndex = 0;
+      let hearts = 3;
+      let correctCount = 0;
+      let lastEarnedStars = 3;
+      let selectedTokens = [];
+      let answered = false;
+
+      // AUDIO EFEK & MUSIK LATAR
+      let audioCtx = null;
+      let musicPlaying = false;
+      let musicTimer = null;
+      let melodyStep = 0;
+      const MELODY_NOTES = [523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 523.25, 392.0];
+
+      function getAudioCtx() {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return null;
+        if (!audioCtx) audioCtx = new Ctx();
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        return audioCtx;
+      }
+
+      function playTone(type) {
+        try {
+          const ctx = getAudioCtx();
+          if (!ctx) return;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          if (type === "win") {
+            osc.frequency.setValueAtTime(523, ctx.currentTime);
+            osc.frequency.setValueAtTime(659, ctx.currentTime + 0.09);
+            osc.frequency.setValueAtTime(784, ctx.currentTime + 0.18);
+            gain.gain.setValueAtTime(0.13, ctx.currentTime);
             gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.42);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
             osc.start();
             osc.stop(ctx.currentTime + 0.42);
-          } catch (e) {}
-        }, 520);
-      } else {
-        clearInterval(musicTimer);
-      }
-    }
-
-    function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
-      } else {
-        document.exitFullscreen().catch(() => {});
-      }
-    }
-
-    // SUARA PELAFALAN & PENGENALAN SUARA MIKROFON
-    function speakEnglish(text) {
-      if (!("speechSynthesis" in window)) return;
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = "en-US";
-      utter.rate = 0.88;
-      utter.pitch = 1.05;
-      window.speechSynthesis.speak(utter);
-    }
-
-    function listenMicrophone(targetWord, statusEl, btnEl, onSuccess) {
-      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRec) {
-        statusEl.textContent = "💡 Browser ini belum mendukung fitur Mikrofon (Gunakan Chrome di HP/PC).";
-        return;
-      }
-      const rec = new SpeechRec();
-      rec.lang = "en-US";
-      rec.interimResults = false;
-      rec.maxAlternatives = 3;
-
-      btnEl.classList.add("listening");
-      statusEl.textContent = "🎙️ Sedang mendengarkan... Ucapkan bahasa Inggrisnya sekarang!";
-
-      rec.onresult = (ev) => {
-        btnEl.classList.remove("listening");
-        const cleanTarget = targetWord.toLowerCase().replace(/[^a-z0-9 ]/g, "").trim();
-        let matched = false;
-        let heardText = "";
-        for (let i = 0; i < ev.results[0].length; i++) {
-          const transcript = ev.results[0][i].transcript.toLowerCase().replace(/[^a-z0-9 ]/g, "").trim();
-          if (i === 0) heardText = ev.results[0][i].transcript;
-          if (transcript === cleanTarget || transcript.includes(cleanTarget) || cleanTarget.includes(transcript)) {
-            matched = true;
-            break;
+          } else if (type === "pop") {
+            osc.frequency.setValueAtTime(420, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
+            gain.gain.setValueAtTime(0.16, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.14);
+          } else if (type === "fanfare") {
+            [523, 659, 784, 1046].forEach(function (f, idx) {
+              osc.frequency.setValueAtTime(f, ctx.currentTime + idx * 0.11);
+            });
+            gain.gain.setValueAtTime(0.15, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.65);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.65);
+          } else {
+            osc.frequency.setValueAtTime(240, ctx.currentTime);
+            osc.frequency.setValueAtTime(185, ctx.currentTime + 0.14);
+            gain.gain.setValueAtTime(0.12, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.32);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.32);
           }
-        }
-        if (matched) {
-          playTone("win");
-          addCoins(10);
-          statusEl.textContent = `🌟 Pelafalan Keren! Terdengar: "${heardText}" (+10 🪙)`;
-          setPetBubble("Pelafalan bahasa Inggrismu hebat sekali! 🎉");
-          if (onSuccess) onSuccess();
+        } catch (err) {}
+      }
+
+      function toggleMusic() {
+        musicPlaying = !musicPlaying;
+        document.getElementById("musicBtn").textContent = musicPlaying ? "🎵 Musik: ON" : "🎵 Musik: OFF";
+        if (musicPlaying) {
+          getAudioCtx();
+          musicTimer = setInterval(function () {
+            if (!musicPlaying) return;
+            try {
+              const ctx = getAudioCtx();
+              if (!ctx) return;
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = "triangle";
+              osc.frequency.setValueAtTime(MELODY_NOTES[melodyStep % MELODY_NOTES.length], ctx.currentTime);
+              melodyStep++;
+              gain.gain.setValueAtTime(0.035, ctx.currentTime);
+              gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.42);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start();
+              osc.stop(ctx.currentTime + 0.42);
+            } catch (err) {}
+          }, 520);
         } else {
-          playTone("lose");
-          statusEl.textContent = `🎤 Terdengar: "${heardText}". Yuk coba ucapkan "${targetWord}" lagi!`;
+          clearInterval(musicTimer);
         }
-      };
-
-      rec.onerror = () => {
-        btnEl.classList.remove("listening");
-        statusEl.textContent = "⚠️ Suara belum terdengar jelas, pastikan izin mikrofon aktif lalu coba lagi.";
-      };
-      rec.onend = () => btnEl.classList.remove("listening");
-      rec.start();
-    }
-
-    function practiceMicStudy() {
-      const item = currentLevelObj.items[studyIndex];
-      listenMicrophone(item.en, document.getElementById("studyMicStatus"), document.getElementById("studyMicBtn"));
-    }
-
-    function answerWithMic() {
-      if (answered) return;
-      const item = currentLevelObj.items[quizIndex];
-      listenMicrophone(item.answer, document.getElementById("quizMicStatus"), document.getElementById("quizMicBtn"), () => {
-        if (!answered) {
-          answered = true;
-          unlockStickerItem(item.idKey);
-          handleAnswerResult(true, `Luar biasa! Kamu menjawab "${item.answer}" langsung dengan suaramu!`);
-        }
-      });
-    }
-
-    // FOTO REALISTIS WIKIPEDIA
-    async function renderRealisticPhoto(containerId, wikiTitle, fallbackEmoji) {
-      const box = document.getElementById(containerId);
-      if (!box) return;
-      box.innerHTML = `<div class="fallback-emoji">${fallbackEmoji}</div>`;
-      if (photoCache[wikiTitle]) {
-        box.innerHTML = `<img src="${photoCache[wikiTitle]}" alt="${wikiTitle}" />`;
-        return;
       }
-      try {
-        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data.thumbnail && data.thumbnail.source) {
-          photoCache[wikiTitle] = data.thumbnail.source;
-          if (document.getElementById(containerId)) {
-            document.getElementById(containerId).innerHTML = `<img src="${data.thumbnail.source}" alt="${wikiTitle}" />`;
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen().catch(function () {});
+          }
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen().catch(function () {});
           }
         }
-      } catch (e) {}
-    }
+      }
 
-    // KOIN, BINTANG, ALBUM & COMPANION PET
-    function addCoins(amount) {
-      savedCoins += amount;
-      localStorage.setItem("kabella_en_coins", String(savedCoins));
-      updateHeaderAndPet();
-    }
+      // TEXT TO SPEECH & SPEECH RECOGNITION
+      function speakEnglish(text) {
+        try {
+          if (!("speechSynthesis" in window)) return;
+          window.speechSynthesis.cancel();
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.lang = "en-US";
+          utter.rate = 0.88;
+          utter.pitch = 1.05;
+          window.speechSynthesis.speak(utter);
+        } catch (err) {}
+      }
 
-    function unlockStickerItem(idKey) {
-      if (!unlockedAlbum.includes(idKey)) {
-        unlockedAlbum.push(idKey);
-        localStorage.setItem("kabella_en_album", JSON.stringify(unlockedAlbum));
+      function listenMicrophone(targetWord, statusEl, btnEl, onSuccess) {
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRec) {
+          statusEl.textContent = "💡 Browser ini belum mendukung Mikrofon (Gunakan Google Chrome).";
+          return;
+        }
+        try {
+          const rec = new SpeechRec();
+          rec.lang = "en-US";
+          rec.interimResults = false;
+          rec.maxAlternatives = 3;
+
+          btnEl.classList.add("listening");
+          statusEl.textContent = "🎙️ Mendengarkan... Ucapkan bahasa Inggrisnya sekarang!";
+
+          rec.onresult = function (ev) {
+            btnEl.classList.remove("listening");
+            const cleanTarget = targetWord.toLowerCase().replace(/[^a-z0-9 ]/g, "").trim();
+            let matched = false;
+            let heardText = "";
+            for (let i = 0; i < ev.results[0].length; i++) {
+              const transcript = ev.results[0][i].transcript.toLowerCase().replace(/[^a-z0-9 ]/g, "").trim();
+              if (i === 0) heardText = ev.results[0][i].transcript;
+              if (transcript === cleanTarget || transcript.indexOf(cleanTarget) !== -1 || cleanTarget.indexOf(transcript) !== -1) {
+                matched = true;
+                break;
+              }
+            }
+            if (matched) {
+              playTone("win");
+              addCoins(10);
+              statusEl.textContent = '🌟 Pelafalan Keren! Terdengar: "' + heardText + '" (+10 🪙)';
+              setPetBubble("Pelafalan bahasa Inggrismu hebat sekali! 🎉");
+              if (onSuccess) onSuccess();
+            } else {
+              playTone("lose");
+              statusEl.textContent = '🎤 Terdengar: "' + heardText + '". Yuk coba ucapkan "' + targetWord + '" lagi!';
+            }
+          };
+
+          rec.onerror = function () {
+            btnEl.classList.remove("listening");
+            statusEl.textContent = "⚠️ Suara belum terdengar jelas, pastikan izin mikrofon aktif lalu klik lagi.";
+          };
+          rec.onend = function () {
+            btnEl.classList.remove("listening");
+          };
+          rec.start();
+        } catch (err) {
+          btnEl.classList.remove("listening");
+          statusEl.textContent = "⚠️ Gagal membuka mikrofon di perangkat ini.";
+        }
+      }
+
+      // FOTO OBJEK REALISTIS WIKIPEDIA API
+      function renderRealisticPhoto(containerId, wikiTitle, fallbackEmoji) {
+        const box = document.getElementById(containerId);
+        if (!box) return;
+        box.innerHTML = "";
+        const fallbackDiv = document.createElement("div");
+        fallbackDiv.className = "fallback-emoji";
+        fallbackDiv.textContent = fallbackEmoji;
+        box.appendChild(fallbackDiv);
+
+        if (photoCache[wikiTitle]) {
+          const imgCached = document.createElement("img");
+          imgCached.src = photoCache[wikiTitle];
+          imgCached.alt = wikiTitle;
+          box.innerHTML = "";
+          box.appendChild(imgCached);
+          return;
+        }
+
+        fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(wikiTitle))
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .then(function (data) {
+            if (data && data.thumbnail && data.thumbnail.source) {
+              photoCache[wikiTitle] = data.thumbnail.source;
+              const targetBox = document.getElementById(containerId);
+              if (targetBox) {
+                const img = document.createElement("img");
+                img.src = data.thumbnail.source;
+                img.alt = wikiTitle;
+                targetBox.innerHTML = "";
+                targetBox.appendChild(img);
+              }
+            }
+          })
+          .catch(function () {});
+      }
+
+      function addCoins(amount) {
+        savedCoins += amount;
+        safeSet("kabella_en_coins", String(savedCoins));
         updateHeaderAndPet();
       }
-    }
 
-    function getCurrentPetInfo() {
-      const totalStarSum = Object.values(savedStars).reduce((a, b) => a + b, 0);
-      const petObj = PETS.find((p) => p.id === equipped.pet) || PETS[0];
-      const stageIdx = totalStarSum >= 14 ? 3 : totalStarSum >= 7 ? 2 : totalStarSum >= 2 ? 1 : 0;
-      const stageNames = ["Tahap Telur", "Tahap Bayi", "Tahap Petualang", "Master Bermahkota"];
-      return { petObj, icon: petObj.stages[stageIdx], stageName: stageNames[stageIdx], stageIdx };
-    }
-
-    function setPetBubble(msg) {
-      document.getElementById("petWidgetSpeech").textContent = msg;
-    }
-
-    function petEncourage() {
-      playTone("pop");
-      const quotes = [
-        "Semangat terus! Setiap kata baru membuatmu makin pintar! 🌟",
-        "Coba tombol 🎤 Mikrofon untuk melatih keberanian bicara bahasa Inggris!",
-        "Kumpulkan koin 🪙 dan hias sertifikatmu di menu Toko!",
-        "Ayo buka semua 6 Level agar Sertifikat Emas Grand Master terbuka! 👑"
-      ];
-      setPetBubble(quotes[Math.floor(Math.random() * quotes.length)]);
-    }
-
-    function updateHeaderAndPet() {
-      const totalStarSum = Object.values(savedStars).reduce((a, b) => a + b, 0);
-      const totalItemsCount = LEVELS.reduce((acc, lv) => acc + lv.items.length, 0);
-      document.getElementById("totalStars").textContent = totalStarSum;
-      document.getElementById("totalCoins").textContent = savedCoins;
-      document.getElementById("albumCountLabel").textContent = `${unlockedAlbum.length}/${totalItemsCount}`;
-
-      const pInfo = getCurrentPetInfo();
-      document.getElementById("petWidgetIcon").textContent = pInfo.icon;
-      document.getElementById("petWidgetTitle").textContent = `${pInfo.petObj.name} • ${pInfo.stageName}`;
-    }
-
-    // NAVIGASI TAB & LAYAR
-    function hideAllScreens() {
-      ["adventureTab", "albumTab", "shopTab", "grandTab", "studyScreen", "playScreen", "balloonScreen", "resultScreen"].forEach((id) => {
-        document.getElementById(id).classList.add("hidden");
-      });
-    }
-
-    function switchTab(tabName) {
-      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-      hideAllScreens();
-      document.getElementById("mainNavTabs").classList.remove("hidden");
-      ["Adventure", "Album", "Shop", "Grand"].forEach((t) => {
-        document.getElementById("tabBtn" + t).classList.toggle("active", t.toLowerCase() === tabName);
-      });
-
-      if (tabName === "adventure") {
-        renderHome();
-        document.getElementById("adventureTab").classList.remove("hidden");
-      } else if (tabName === "album") {
-        renderAlbumTab();
-        document.getElementById("albumTab").classList.remove("hidden");
-      } else if (tabName === "shop") {
-        renderShopTab();
-        document.getElementById("shopTab").classList.remove("hidden");
-      } else if (tabName === "grand") {
-        renderGrandTab();
-        document.getElementById("grandTab").classList.remove("hidden");
+      function unlockStickerItem(idKey) {
+        if (unlockedAlbum.indexOf(idKey) === -1) {
+          unlockedAlbum.push(idKey);
+          safeSet("kabella_en_album", JSON.stringify(unlockedAlbum));
+          updateHeaderAndPet();
+        }
       }
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
 
-    function goHome() {
-      switchTab("adventure");
-    }
+      function getCurrentPetInfo() {
+        const starVals = Object.keys(savedStars).map(function (k) { return savedStars[k] || 0; });
+        const totalStarSum = starVals.reduce(function (a, b) { return a + b; }, 0);
+        const petObj = PETS.find(function (p) { return p.id === equipped.pet; }) || PETS[0];
+        const stageIdx = totalStarSum >= 14 ? 3 : totalStarSum >= 7 ? 2 : totalStarSum >= 2 ? 1 : 0;
+        const stageNames = ["Tahap Telur", "Tahap Bayi", "Tahap Petualang", "Master Bermahkota"];
+        return { petObj: petObj, icon: petObj.stages[stageIdx], stageName: stageNames[stageIdx], stageIdx: stageIdx };
+      }
 
-    function renderHome() {
-      updateHeaderAndPet();
-      const grid = document.getElementById("levelGrid");
-      grid.innerHTML = "";
-      LEVELS.forEach((lv) => {
-        const stars = savedStars[lv.level] || 0;
-        const starStr = "⭐".repeat(stars) + "☆".repeat(3 - stars);
-        const card = document.createElement("div");
-        card.className = "level-card";
-        card.innerHTML = `
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <span class="level-badge" style="background:${lv.color};color:${lv.textColor}">
-                ${lv.badgeIcon} LEVEL ${lv.level} • ${lv.rankName}
-              </span>
-              <span style="font-size:1.05rem">${starStr}</span>
-            </div>
-            <h3>${lv.title}</h3>
-            <p>${lv.desc}</p>
-          </div>
-          <div>
-            <div class="card-actions">
-              <button class="btn-secondary" onclick="startStudy(${lv.level})">📖 Belajar</button>
-              <button class="btn-primary" onclick="startPlay(${lv.level})">🎮 Subtest</button>
-            </div>
-            ${stars > 0 ? `<button class="cert-mini-btn" onclick="openSavedCertificate(${lv.level})">🏅 Unduh Sertifikat Level ${lv.level}</button>` : ""}
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
+      function setPetBubble(msg) {
+        document.getElementById("petWidgetSpeech").textContent = msg;
+      }
 
-    // RENDER ALBUM STIKER
-    function renderAlbumTab() {
-      const grid = document.getElementById("albumGrid");
-      grid.innerHTML = "";
-      LEVELS.forEach((lv) => {
-        lv.items.forEach((it) => {
-          const isOpen = unlockedAlbum.includes(it.idKey);
-          const card = document.createElement("div");
-          card.className = "sticker-card" + (isOpen ? "" : " locked");
-          const thumbId = "alb_" + it.idKey;
-          card.innerHTML = `
-            <div class="sticker-thumb" id="${thumbId}">${isOpen ? it.emoji : "🔒"}</div>
-            <div style="font-weight:900;color:#0f172a;font-size:0.95rem">${isOpen ? it.en : "???"}</div>
-            <div style="font-size:0.8rem;color:var(--muted);font-weight:700;margin-bottom:8px">${isOpen ? it.id : `Level ${lv.level}`}</div>
-            ${isOpen ? `<button class="btn-speak" style="padding:6px 10px;font-size:0.8rem;width:100%" onclick="speakEnglish('${it.en.replace(/'/g, "\\'")}')">🔊 Suara</button>` : ""}
-          `;
-          grid.appendChild(card);
-          if (isOpen) renderRealisticPhoto(thumbId, it.wiki, it.emoji);
-        });
-      });
-    }
-
-    // RENDER TOKO & MASKOT
-    function renderShopTab() {
-      updateHeaderAndPet();
-      const petGrid = document.getElementById("petSelectGrid");
-      petGrid.innerHTML = "";
-      const pStageIdx = getCurrentPetInfo().stageIdx;
-      PETS.forEach((p) => {
-        const active = equipped.pet === p.id;
-        const div = document.createElement("div");
-        div.className = "shop-item" + (active ? " equipped" : "");
-        div.innerHTML = `
-          <div style="font-size:2.4rem">${p.stages[pStageIdx]}</div>
-          <div style="font-weight:800;margin:6px 0">${p.name}</div>
-          <button class="${active ? 'btn-success' : 'btn-secondary'}" style="width:100%;padding:7px" onclick="selectPet('${p.id}')">
-            ${active ? "✅ Aktif" : "Pilih"}
-          </button>
-        `;
-        petGrid.appendChild(div);
-      });
-
-      renderShopCategory("avatarShopGrid", SHOP_AVATARS, "avatar");
-      renderShopCategory("stickerShopGrid", SHOP_STICKERS, "sticker");
-      renderShopCategory("frameShopGrid", SHOP_FRAMES, "frame");
-    }
-
-    function selectPet(petId) {
-      equipped.pet = petId;
-      localStorage.setItem("kabella_en_equip", JSON.stringify(equipped));
-      playTone("pop");
-      setPetBubble("Asyik! Aku siap menemanimu belajar! 🌟");
-      renderShopTab();
-    }
-
-    function renderShopCategory(containerId, list, equipKey) {
-      const grid = document.getElementById(containerId);
-      grid.innerHTML = "";
-      list.forEach((item) => {
-        const isOwned = ownedShop.includes(item.id);
-        const isEq = equipped[equipKey] === item.id;
-        const div = document.createElement("div");
-        div.className = "shop-item" + (isEq ? " equipped" : "");
-        div.innerHTML = `
-          <div style="font-size:2.3rem">${item.icon}</div>
-          <div style="font-weight:800;font-size:0.9rem;margin:6px 0">${item.name}</div>
-          <button class="${isEq ? 'btn-success' : isOwned ? 'btn-secondary' : 'btn-primary'}" style="width:100%;padding:7px;font-size:0.84rem"
-            onclick="buyOrEquip('${item.id}', ${item.cost}, '${equipKey}')">
-            ${isEq ? "✅ Terpasang" : isOwned ? "Pasang" : `Beli ${item.cost} 🪙`}
-          </button>
-        `;
-        grid.appendChild(div);
-      });
-    }
-
-    function buyOrEquip(id, cost, equipKey) {
-      if (ownedShop.includes(id)) {
-        equipped[equipKey] = id;
-        localStorage.setItem("kabella_en_equip", JSON.stringify(equipped));
+      function petEncourage() {
         playTone("pop");
-        renderShopTab();
-        return;
+        const quotes = [
+          "Semangat terus! Setiap kata baru membuatmu makin pintar! 🌟",
+          "Klik tombol 🎤 Mikrofon untuk melatih keberanian bicara Bahasa Inggris!",
+          "Kumpulkan koin 🪙 dan hias sertifikatmu di menu Toko & Maskot!",
+          "Ayo tamatkan semua 6 Level agar Sertifikat Emas Grand Master terbuka! 👑"
+        ];
+        setPetBubble(quotes[Math.floor(Math.random() * quotes.length)]);
       }
-      if (savedCoins < cost) {
-        playTone("lose");
-        setPetBubble("Koinmu belum cukup! Yuk mainkan Subtest atau latihan Mikrofon dulu! 🪙");
-        return;
+
+      function updateHeaderAndPet() {
+        const starVals = Object.keys(savedStars).map(function (k) { return savedStars[k] || 0; });
+        const totalStarSum = starVals.reduce(function (a, b) { return a + b; }, 0);
+        const totalItemsCount = LEVELS.reduce(function (acc, lv) { return acc + lv.items.length; }, 0);
+        document.getElementById("totalStars").textContent = totalStarSum;
+        document.getElementById("totalCoins").textContent = savedCoins;
+        document.getElementById("albumCountLabel").textContent = unlockedAlbum.length + "/" + totalItemsCount;
+
+        const pInfo = getCurrentPetInfo();
+        document.getElementById("petWidgetIcon").textContent = pInfo.icon;
+        document.getElementById("petWidgetTitle").textContent = pInfo.petObj.name + " • " + pInfo.stageName;
       }
-      savedCoins -= cost;
-      ownedShop.push(id);
-      equipped[equipKey] = id;
-      localStorage.setItem("kabella_en_coins", String(savedCoins));
-      localStorage.setItem("kabella_en_shop", JSON.stringify(ownedShop));
-      localStorage.setItem("kabella_en_equip", JSON.stringify(equipped));
-      playTone("win");
-      setPetBubble("Hore! Item baru sudah terpasang untuk Sertifikatmu! 🎁");
-      renderShopTab();
-    }
 
-    // ================= MODE BELAJAR =================
-    function startStudy(levelNum) {
-      currentLevelObj = LEVELS.find((g) => g.level === levelNum);
-      studyIndex = 0;
-      hideAllScreens();
-      document.getElementById("mainNavTabs").classList.add("hidden");
-      document.getElementById("studyScreen").classList.remove("hidden");
-      renderStudyCard();
-    }
+      // NAVIGASI ANTAR LAYAR
+      let balloonInterval = null;
+      let balloonClock = null;
 
-    function renderStudyCard() {
-      const item = currentLevelObj.items[studyIndex];
-      document.getElementById("studyTitle").textContent = `Level ${currentLevelObj.level} - ${currentLevelObj.title}`;
-      document.getElementById("studyCounter").textContent = `${studyIndex + 1} / ${currentLevelObj.items.length}`;
-      document.getElementById("studyEn").textContent = item.en;
-      document.getElementById("studyId").textContent = `Artinya: ${item.id}`;
-      document.getElementById("studyMicStatus").textContent = "";
-      document.getElementById("nextStudyBtn").textContent =
-        studyIndex === currentLevelObj.items.length - 1 ? "🎮 Mulai Subtest!" : "Selanjutnya ➡";
-      renderRealisticPhoto("studyPhotoBox", item.wiki, item.emoji);
-      speakEnglish(item.en);
-    }
-
-    function speakCurrentStudy() { speakEnglish(currentLevelObj.items[studyIndex].en); }
-    function prevStudy() { if (studyIndex > 0) { studyIndex--; renderStudyCard(); } }
-    function nextStudy() {
-      if (studyIndex < currentLevelObj.items.length - 1) { studyIndex++; renderStudyCard(); }
-      else startPlay(currentLevelObj.level);
-    }
-
-    // ================= MODE SUBTEST KUIS =================
-    function startPlay(levelNum) {
-      currentLevelObj = LEVELS.find((g) => g.level === levelNum);
-      quizIndex = 0;
-      hearts = 3;
-      correctCount = 0;
-      hideAllScreens();
-      document.getElementById("mainNavTabs").classList.add("hidden");
-      document.getElementById("playScreen").classList.remove("hidden");
-      setPetBubble(`Semangat di Level ${levelNum}! Kamu pasti bisa! 💪`);
-      renderQuestion();
-    }
-
-    function replayCurrentLevel() { startPlay(currentLevelObj.level); }
-
-    function shuffleArray(arr) {
-      const copy = [...arr];
-      for (let i = copy.length - 1; i > 0) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
+      function stopActiveTimers() {
+        clearInterval(balloonInterval);
+        clearInterval(balloonClock);
+        try {
+          if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+        } catch (err) {}
       }
-      return copy;
-    }
 
-    function speakQuizAudio() { speakEnglish(currentLevelObj.items[quizIndex].en); }
-
-    function renderQuestion() {
-      answered = false;
-      const total = currentLevelObj.items.length;
-      const item = currentLevelObj.items[quizIndex];
-
-      document.getElementById("progressBar").style.width = `${(quizIndex / total) * 100}%`;
-      document.getElementById("heartsDisplay").textContent = "❤️".repeat(hearts) + "🤍".repeat(3 - hearts);
-      document.getElementById("questionText").textContent = item.q;
-      document.getElementById("quizMicStatus").textContent = "";
-      document.getElementById("feedbackBox").classList.add("hidden");
-      document.getElementById("nextQuestionBtn").classList.add("hidden");
-
-      renderRealisticPhoto("quizPhotoBox", item.wiki, item.emoji);
-      speakEnglish(item.en);
-
-      const mcqArea = document.getElementById("mcqArea");
-      const builderArea = document.getElementById("builderArea");
-
-      if (item.mode === "mcq") {
-        document.getElementById("subPromptText").textContent = "Pilih jawaban yang benar atau gunakan tombol 🎤 Jawab Pakai Suara!";
-        mcqArea.classList.remove("hidden");
-        builderArea.classList.add("hidden");
-        mcqArea.innerHTML = "";
-        shuffleArray(item.options).forEach((opt) => {
-          const btn = document.createElement("button");
-          btn.className = "opt-btn";
-          btn.textContent = opt;
-          btn.onclick = () => checkMcq(btn, opt, item);
-          mcqArea.appendChild(btn);
+      function hideAllScreens() {
+        ["adventureTab", "albumTab", "shopTab", "grandTab", "studyScreen", "playScreen", "balloonScreen", "resultScreen"].forEach(function (id) {
+          document.getElementById(id).classList.add("hidden");
         });
-      } else {
-        document.getElementById("subPromptText").textContent =
-          item.mode === "spell" ? "Klik huruf sesuai urutan ejaan!" : "Klik potongan kata untuk menyusun kalimat!";
-        mcqArea.classList.add("hidden");
-        builderArea.classList.remove("hidden");
-        setupBuilder(item);
       }
-    }
 
-    function checkMcq(clickedBtn, chosen, item) {
-      if (answered) return;
-      answered = true;
-      speakEnglish(chosen);
-      const allBtns = document.querySelectorAll(".opt-btn");
-      if (chosen === item.answer) {
-        clickedBtn.classList.add("correct");
-        unlockStickerItem(item.idKey);
-        addCoins(5);
-        handleAnswerResult(true, `Hebat! Jawaban "${item.answer}" benar! (+5 🪙 & Stiker Terbuka)`);
-      } else {
-        clickedBtn.classList.add("wrong");
-        allBtns.forEach((b) => { if (b.textContent === item.answer) b.classList.add("correct"); });
-        handleAnswerResult(false, `Jawaban yang tepat adalah "${item.answer}".`);
+      function switchTab(tabName) {
+        stopActiveTimers();
+        hideAllScreens();
+        document.getElementById("mainNavTabs").classList.remove("hidden");
+
+        document.getElementById("tabBtnAdventure").classList.toggle("active", tabName === "adventure");
+        document.getElementById("tabBtnAlbum").classList.toggle("active", tabName === "album");
+        document.getElementById("tabBtnShop").classList.toggle("active", tabName === "shop");
+        document.getElementById("tabBtnGrand").classList.toggle("active", tabName === "grand");
+
+        if (tabName === "adventure") {
+          renderHome();
+          document.getElementById("adventureTab").classList.remove("hidden");
+        } else if (tabName === "album") {
+          renderAlbumTab();
+          document.getElementById("albumTab").classList.remove("hidden");
+        } else if (tabName === "shop") {
+          renderShopTab();
+          document.getElementById("shopTab").classList.remove("hidden");
+        } else if (tabName === "grand") {
+          renderGrandTab();
+          document.getElementById("grandTab").classList.remove("hidden");
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    }
 
-    function setupBuilder(item) {
-      selectedTokens = [];
-      const bank = document.getElementById("bankTokens");
-      const slots = document.getElementById("answerSlots");
-      slots.innerHTML = `<span style="color:#94a3b8;font-weight:700">Klik kepingan di bawah ini...</span>`;
-      bank.innerHTML = "";
+      // RENDER KARTU LEVEL 1 - 6 DENGAN EVENT LISTENER LANGSUNG
+      function renderHome() {
+        updateHeaderAndPet();
+        const grid = document.getElementById("levelGrid");
+        grid.innerHTML = "";
 
-      shuffleArray(item.tokens.map((t, idx) => ({ text: t, id: idx }))).forEach((tok) => {
-        const btn = document.createElement("button");
-        btn.className = "token-btn";
-        btn.textContent = tok.text;
-        btn.onclick = () => {
-          if (answered || btn.classList.contains("used")) return;
-          btn.classList.add("used");
-          selectedTokens.push({ text: tok.text, btnRef: btn });
-          speakEnglish(tok.text);
-          renderSelectedSlots();
-        };
-        bank.appendChild(btn);
-      });
-    }
+        LEVELS.forEach(function (lv) {
+          const stars = savedStars[lv.level] || 0;
+          const starStr = "⭐".repeat(stars) + "☆".repeat(3 - stars);
 
-    function renderSelectedSlots() {
-      const slots = document.getElementById("answerSlots");
-      slots.innerHTML = "";
-      if (selectedTokens.length === 0) {
-        slots.innerHTML = `<span style="color:#94a3b8;font-weight:700">Klik kepingan di bawah ini...</span>`;
-        return;
+          const card = document.createElement("div");
+          card.className = "level-card";
+
+          const topPart = document.createElement("div");
+          const badgeRow = document.createElement("div");
+          badgeRow.style.cssText = "display:flex;justify-content:space-between;align-items:center";
+
+          const badge = document.createElement("span");
+          badge.className = "level-badge";
+          badge.style.background = lv.color;
+          badge.style.color = lv.textColor;
+          badge.textContent = lv.badgeIcon + " LEVEL " + lv.level + " • " + lv.rankName;
+
+          const starSpan = document.createElement("span");
+          starSpan.style.fontSize = "1.05rem";
+          starSpan.textContent = starStr;
+
+          badgeRow.appendChild(badge);
+          badgeRow.appendChild(starSpan);
+
+          const h3 = document.createElement("h3");
+          h3.textContent = lv.title;
+          const p = document.createElement("p");
+          p.textContent = lv.desc;
+
+          topPart.appendChild(badgeRow);
+          topPart.appendChild(h3);
+          topPart.appendChild(p);
+
+          const bottomPart = document.createElement("div");
+          const actions = document.createElement("div");
+          actions.className = "card-actions";
+
+          const btnStudy = document.createElement("button");
+          btnStudy.type = "button";
+          btnStudy.className = "btn-secondary";
+          btnStudy.textContent = "📖 Belajar";
+          btnStudy.addEventListener("click", function () { startStudy(lv.level); });
+
+          const btnPlay = document.createElement("button");
+          btnPlay.type = "button";
+          btnPlay.className = "btn-primary";
+          btnPlay.textContent = "🎮 Subtest";
+          btnPlay.addEventListener("click", function () { startPlay(lv.level); });
+
+          actions.appendChild(btnStudy);
+          actions.appendChild(btnPlay);
+          bottomPart.appendChild(actions);
+
+          if (stars > 0) {
+            const btnCert = document.createElement("button");
+            btnCert.type = "button";
+            btnCert.className = "cert-mini-btn";
+            btnCert.textContent = "🏅 Unduh Sertifikat Level " + lv.level;
+            btnCert.addEventListener("click", function () { openSavedCertificate(lv.level); });
+            bottomPart.appendChild(btnCert);
+          }
+
+          card.appendChild(topPart);
+          card.appendChild(bottomPart);
+          grid.appendChild(card);
+        });
       }
-      selectedTokens.forEach((tok, idx) => {
-        const chip = document.createElement("button");
-        chip.className = "token-btn";
-        chip.style.background = "#e0f2fe";
-        chip.style.color = "#0369a1";
-        chip.style.borderColor = "#7dd3fc";
-        chip.textContent = tok.text;
-        chip.onclick = () => {
-          if (answered) return;
-          tok.btnRef.classList.remove("used");
-          selectedTokens.splice(idx, 1);
-          renderSelectedSlots();
-        };
-        slots.appendChild(chip);
-      });
-    }
 
-    function resetBuilder() {
-      if (answered) return;
-      selectedTokens.forEach((t) => t.btnRef.classList.remove("used"));
-      selectedTokens = [];
-      renderSelectedSlots();
-    }
+      // RENDER ALBUM STIKER
+      function renderAlbumTab() {
+        const grid = document.getElementById("albumGrid");
+        grid.innerHTML = "";
+        LEVELS.forEach(function (lv) {
+          lv.items.forEach(function (it) {
+            const isOpen = unlockedAlbum.indexOf(it.idKey) !== -1;
+            const card = document.createElement("div");
+            card.className = "sticker-card" + (isOpen ? "" : " locked");
+            const thumbId = "alb_" + it.idKey;
 
-    function checkBuilderAnswer() {
-      if (answered || selectedTokens.length === 0) return;
-      const item = currentLevelObj.items[quizIndex];
-      const joiner = item.mode === "spell" ? "" : " ";
-      const userAns = selectedTokens.map((t) => t.text).join(joiner);
-      answered = true;
-      if (userAns === item.answer) {
-        speakEnglish(item.en);
-        unlockStickerItem(item.idKey);
-        addCoins(5);
-        handleAnswerResult(true, `Keren! Susunan "${item.answer}" tepat! (+5 🪙 & Stiker Terbuka)`);
-      } else {
-        handleAnswerResult(false, `Susunan yang tepat adalah: "${item.answer}"`);
+            const thumb = document.createElement("div");
+            thumb.className = "sticker-thumb";
+            thumb.id = thumbId;
+            thumb.textContent = isOpen ? it.emoji : "🔒";
+
+            const wordDiv = document.createElement("div");
+            wordDiv.style.cssText = "font-weight:900;color:#0f172a;font-size:0.95rem";
+            wordDiv.textContent = isOpen ? it.en : "???";
+
+            const meaningDiv = document.createElement("div");
+            meaningDiv.style.cssText = "font-size:0.8rem;color:var(--muted);font-weight:700;margin-bottom:8px";
+            meaningDiv.textContent = isOpen ? it.id : "Level " + lv.level;
+
+            card.appendChild(thumb);
+            card.appendChild(wordDiv);
+            card.appendChild(meaningDiv);
+
+            if (isOpen) {
+              const speakBtn = document.createElement("button");
+              speakBtn.type = "button";
+              speakBtn.className = "btn-speak";
+              speakBtn.style.cssText = "padding:6px 10px;font-size:0.8rem;width:100%";
+              speakBtn.textContent = "🔊 Suara";
+              speakBtn.addEventListener("click", function () { speakEnglish(it.en); });
+              card.appendChild(speakBtn);
+            }
+
+            grid.appendChild(card);
+            if (isOpen) renderRealisticPhoto(thumbId, it.wiki, it.emoji);
+          });
+        });
       }
-    }
 
-    function handleAnswerResult(isCorrect, message) {
-      const fb = document.getElementById("feedbackBox");
-      fb.classList.remove("hidden", "feedback-ok", "feedback-bad");
-      if (isCorrect) {
-        correctCount++;
+      // RENDER TOKO & MASKOT
+      function renderShopTab() {
+        updateHeaderAndPet();
+        const petGrid = document.getElementById("petSelectGrid");
+        petGrid.innerHTML = "";
+        const pStageIdx = getCurrentPetInfo().stageIdx;
+
+        PETS.forEach(function (p) {
+          const active = equipped.pet === p.id;
+          const div = document.createElement("div");
+          div.className = "shop-item" + (active ? " equipped" : "");
+
+          const iconDiv = document.createElement("div");
+          iconDiv.style.fontSize = "2.4rem";
+          iconDiv.textContent = p.stages[pStageIdx];
+
+          const nameDiv = document.createElement("div");
+          nameDiv.style.cssText = "font-weight:800;margin:6px 0";
+          nameDiv.textContent = p.name;
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = active ? "btn-success" : "btn-secondary";
+          btn.style.cssText = "width:100%;padding:7px";
+          btn.textContent = active ? "✅ Aktif" : "Pilih";
+          btn.addEventListener("click", function () {
+            equipped.pet = p.id;
+            safeSet("kabella_en_equip", JSON.stringify(equipped));
+            playTone("pop");
+            setPetBubble("Asyik! Aku siap menemanimu belajar! 🌟");
+            renderShopTab();
+          });
+
+          div.appendChild(iconDiv);
+          div.appendChild(nameDiv);
+          div.appendChild(btn);
+          petGrid.appendChild(div);
+        });
+
+        renderShopCategory("avatarShopGrid", SHOP_AVATARS, "avatar");
+        renderShopCategory("stickerShopGrid", SHOP_STICKERS, "sticker");
+        renderShopCategory("frameShopGrid", SHOP_FRAMES, "frame");
+      }
+
+      function renderShopCategory(containerId, list, equipKey) {
+        const grid = document.getElementById(containerId);
+        grid.innerHTML = "";
+        list.forEach(function (item) {
+          const isOwned = ownedShop.indexOf(item.id) !== -1;
+          const isEq = equipped[equipKey] === item.id;
+
+          const div = document.createElement("div");
+          div.className = "shop-item" + (isEq ? " equipped" : "");
+
+          const iconDiv = document.createElement("div");
+          iconDiv.style.fontSize = "2.3rem";
+          iconDiv.textContent = item.icon;
+
+          const nameDiv = document.createElement("div");
+          nameDiv.style.cssText = "font-weight:800;font-size:0.9rem;margin:6px 0";
+          nameDiv.textContent = item.name;
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = isEq ? "btn-success" : isOwned ? "btn-secondary" : "btn-primary";
+          btn.style.cssText = "width:100%;padding:7px;font-size:0.84rem";
+          btn.textContent = isEq ? "✅ Terpasang" : isOwned ? "Pasang" : "Beli " + item.cost + " 🪙";
+          btn.addEventListener("click", function () {
+            buyOrEquip(item.id, item.cost, equipKey);
+          });
+
+          div.appendChild(iconDiv);
+          div.appendChild(nameDiv);
+          div.appendChild(btn);
+          grid.appendChild(div);
+        });
+      }
+
+      function buyOrEquip(id, cost, equipKey) {
+        if (ownedShop.indexOf(id) !== -1) {
+          equipped[equipKey] = id;
+          safeSet("kabella_en_equip", JSON.stringify(equipped));
+          playTone("pop");
+          renderShopTab();
+          return;
+        }
+        if (savedCoins < cost) {
+          playTone("lose");
+          setPetBubble("Koinmu belum cukup! Yuk mainkan Subtest atau latihan Mikrofon dulu! 🪙");
+          return;
+        }
+        savedCoins -= cost;
+        ownedShop.push(id);
+        equipped[equipKey] = id;
+        safeSet("kabella_en_coins", String(savedCoins));
+        safeSet("kabella_en_shop", JSON.stringify(ownedShop));
+        safeSet("kabella_en_equip", JSON.stringify(equipped));
         playTone("win");
-        fb.classList.add("feedback-ok");
-        fb.textContent = "🎉 " + message;
-        setPetBubble("Yeay! Jawabanmu tepat sekali! 🌟");
-      } else {
-        hearts--;
-        playTone("lose");
-        document.getElementById("heartsDisplay").textContent =
-          "❤️".repeat(Math.max(0, hearts)) + "🤍".repeat(3 - Math.max(0, hearts));
-        fb.classList.add("feedback-bad");
-        fb.textContent = "💡 " + message;
-        setPetBubble("Tidak apa-apa, yuk perhatikan jawaban benarnya! 💡");
+        setPetBubble("Hore! Item baru sudah terpasang untuk Sertifikatmu! 🎁");
+        renderShopTab();
       }
-      document.getElementById("nextQuestionBtn").classList.remove("hidden");
-    }
 
-    function nextQuestion() {
-      if (hearts <= 0) {
-        finishQuiz(false);
-        return;
+      // MODE BELAJAR
+      function startStudy(levelNum) {
+        currentLevelObj = LEVELS.find(function (g) { return g.level === levelNum; }) || LEVELS[0];
+        studyIndex = 0;
+        hideAllScreens();
+        document.getElementById("mainNavTabs").classList.add("hidden");
+        document.getElementById("studyScreen").classList.remove("hidden");
+        renderStudyCard();
       }
-      quizIndex++;
-      if (quizIndex >= currentLevelObj.items.length) {
-        startBalloonBonusRound();
-      } else {
+
+      function renderStudyCard() {
+        const item = currentLevelObj.items[studyIndex];
+        document.getElementById("studyTitle").textContent = "Level " + currentLevelObj.level + " - " + currentLevelObj.title;
+        document.getElementById("studyCounter").textContent = (studyIndex + 1) + " / " + currentLevelObj.items.length;
+        document.getElementById("studyEn").textContent = item.en;
+        document.getElementById("studyId").textContent = "Artinya: " + item.id;
+        document.getElementById("studyMicStatus").textContent = "";
+        document.getElementById("nextStudyBtn").textContent =
+          studyIndex === currentLevelObj.items.length - 1 ? "🎮 Mulai Subtest!" : "Selanjutnya ➡";
+        renderRealisticPhoto("studyPhotoBox", item.wiki, item.emoji);
+        speakEnglish(item.en);
+      }
+
+      function speakCurrentStudy() {
+        speakEnglish(currentLevelObj.items[studyIndex].en);
+      }
+
+      function practiceMicStudy() {
+        const item = currentLevelObj.items[studyIndex];
+        listenMicrophone(item.en, document.getElementById("studyMicStatus"), document.getElementById("studyMicBtn"));
+      }
+
+      function prevStudy() {
+        if (studyIndex > 0) {
+          studyIndex--;
+          renderStudyCard();
+        }
+      }
+
+      function nextStudy() {
+        if (studyIndex < currentLevelObj.items.length - 1) {
+          studyIndex++;
+          renderStudyCard();
+        } else {
+          startPlay(currentLevelObj.level);
+        }
+      }
+
+      // MODE SUBTEST
+      function startPlay(levelNum) {
+        currentLevelObj = LEVELS.find(function (g) { return g.level === levelNum; }) || LEVELS[0];
+        quizIndex = 0;
+        hearts = 3;
+        correctCount = 0;
+        hideAllScreens();
+        document.getElementById("mainNavTabs").classList.add("hidden");
+        document.getElementById("playScreen").classList.remove("hidden");
+        setPetBubble("Semangat di Level " + levelNum + "! Kamu pasti bisa! 💪");
         renderQuestion();
       }
-    }
 
-    // ================= BONUS MINI-GAME BALLOON POP =================
-    let balloonInterval = null;
-    let balloonClock = null;
-    let balloonTarget = null;
+      function replayCurrentLevel() {
+        startPlay(currentLevelObj.level);
+      }
 
-    function startBalloonBonusRound() {
-      hideAllScreens();
-      document.getElementById("balloonScreen").classList.remove("hidden");
-      const arena = document.getElementById("balloonArena");
-      arena.innerHTML = "";
-      let timeLeft = 14;
-      document.getElementById("balloonTimer").textContent = timeLeft;
-
-      pickNewBalloonTarget();
-
-      balloonInterval = setInterval(() => {
-        spawnBalloon();
-      }, 750);
-
-      balloonClock = setInterval(() => {
-        timeLeft--;
-        document.getElementById("balloonTimer").textContent = timeLeft;
-        if (timeLeft <= 0) endBalloonGame();
-      }, 1000);
-    }
-
-    function pickNewBalloonTarget() {
-      const items = currentLevelObj.items;
-      balloonTarget = items[Math.floor(Math.random() * items.length)];
-      const labelWord = balloonTarget.en.split(" ")[0];
-      document.getElementById("balloonPrompt").textContent =
-        `🎈 Pecahkan balon: "${labelWord.toUpperCase()}" (${balloonTarget.id})!`;
-      speakEnglish(labelWord);
-    }
-
-    function spawnBalloon() {
-      const arena = document.getElementById("balloonArena");
-      if (!arena || !balloonTarget) return;
-      const colors = ["#ef4444", "#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899"];
-      const isTarget = Math.random() < 0.48;
-      const randomItem = currentLevelObj.items[Math.floor(Math.random() * currentLevelObj.items.length)];
-      const word = (isTarget ? balloonTarget.en : randomItem.en).split(" ")[0].toUpperCase();
-
-      const b = document.createElement("div");
-      b.className = "balloon";
-      b.textContent = word;
-      b.style.background = colors[Math.floor(Math.random() * colors.length)];
-      b.style.left = Math.floor(Math.random() * 72 + 6) + "%";
-      arena.appendChild(b);
-
-      let pos = -80;
-      const speed = 1.6 + Math.random() * 1.4;
-      const mover = setInterval(() => {
-        pos += speed;
-        b.style.bottom = pos + "px";
-        if (pos > 360) {
-          clearInterval(mover);
-          b.remove();
+      function shuffleArray(arr) {
+        const copy = arr.slice();
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = copy[i];
+          copy[i] = copy[j];
+          copy[j] = temp;
         }
-      }, 24);
+        return copy;
+      }
 
-      b.onclick = () => {
-        clearInterval(mover);
-        const targetWord = balloonTarget.en.split(" ")[0].toUpperCase();
-        if (word === targetWord) {
-          playTone("pop");
-          addCoins(5);
-          b.textContent = "💥 +5🪙";
-          setTimeout(() => b.remove(), 180);
-          pickNewBalloonTarget();
+      function speakQuizAudio() {
+        speakEnglish(currentLevelObj.items[quizIndex].en);
+      }
+
+      function answerWithMic() {
+        if (answered) return;
+        const item = currentLevelObj.items[quizIndex];
+        listenMicrophone(item.answer, document.getElementById("quizMicStatus"), document.getElementById("quizMicBtn"), function () {
+          if (!answered) {
+            answered = true;
+            unlockStickerItem(item.idKey);
+            handleAnswerResult(true, 'Luar biasa! Kamu menjawab "' + item.answer + '" langsung dengan suaramu!');
+          }
+        });
+      }
+
+      function renderQuestion() {
+        answered = false;
+        const total = currentLevelObj.items.length;
+        const item = currentLevelObj.items[quizIndex];
+
+        document.getElementById("progressBar").style.width = ((quizIndex / total) * 100) + "%";
+        document.getElementById("heartsDisplay").textContent = "❤️".repeat(hearts) + "🤍".repeat(3 - hearts);
+        document.getElementById("questionText").textContent = item.q;
+        document.getElementById("quizMicStatus").textContent = "";
+        document.getElementById("feedbackBox").classList.add("hidden");
+        document.getElementById("nextQuestionBtn").classList.add("hidden");
+
+        renderRealisticPhoto("quizPhotoBox", item.wiki, item.emoji);
+        speakEnglish(item.en);
+
+        const mcqArea = document.getElementById("mcqArea");
+        const builderArea = document.getElementById("builderArea");
+
+        if (item.mode === "mcq") {
+          document.getElementById("subPromptText").textContent = "Pilih jawaban yang benar atau gunakan tombol 🎤 Jawab Pakai Suara!";
+          mcqArea.classList.remove("hidden");
+          builderArea.classList.add("hidden");
+          mcqArea.innerHTML = "";
+          shuffleArray(item.options).forEach(function (opt) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "opt-btn";
+            btn.textContent = opt;
+            btn.addEventListener("click", function () { checkMcq(btn, opt, item); });
+            mcqArea.appendChild(btn);
+          });
         } else {
+          document.getElementById("subPromptText").textContent =
+            item.mode === "spell" ? "Klik huruf sesuai urutan ejaan!" : "Klik potongan kata untuk menyusun kalimat!";
+          mcqArea.classList.add("hidden");
+          builderArea.classList.remove("hidden");
+          setupBuilder(item);
+        }
+      }
+
+      function checkMcq(clickedBtn, chosen, item) {
+        if (answered) return;
+        answered = true;
+        speakEnglish(chosen);
+        const allBtns = document.querySelectorAll(".opt-btn");
+        if (chosen === item.answer) {
+          clickedBtn.classList.add("correct");
+          unlockStickerItem(item.idKey);
+          addCoins(5);
+          handleAnswerResult(true, 'Hebat! Jawaban "' + item.answer + '" benar! (+5 🪙 & Stiker Terbuka)');
+        } else {
+          clickedBtn.classList.add("wrong");
+          allBtns.forEach(function (b) {
+            if (b.textContent === item.answer) b.classList.add("correct");
+          });
+          handleAnswerResult(false, 'Jawaban yang tepat adalah "' + item.answer + '".');
+        }
+      }
+
+      function setupBuilder(item) {
+        selectedTokens = [];
+        const bank = document.getElementById("bankTokens");
+        const slots = document.getElementById("answerSlots");
+        slots.innerHTML = '<span style="color:#94a3b8;font-weight:700">Klik kepingan di bawah ini...</span>';
+        bank.innerHTML = "";
+
+        const mapped = item.tokens.map(function (t, idx) { return { text: t, id: idx }; });
+        shuffleArray(mapped).forEach(function (tok) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "token-btn";
+          btn.textContent = tok.text;
+          btn.addEventListener("click", function () {
+            if (answered || btn.classList.contains("used")) return;
+            btn.classList.add("used");
+            selectedTokens.push({ text: tok.text, btnRef: btn });
+            speakEnglish(tok.text);
+            renderSelectedSlots();
+          });
+          bank.appendChild(btn);
+        });
+      }
+
+      function renderSelectedSlots() {
+        const slots = document.getElementById("answerSlots");
+        slots.innerHTML = "";
+        if (selectedTokens.length === 0) {
+          slots.innerHTML = '<span style="color:#94a3b8;font-weight:700">Klik kepingan di bawah ini...</span>';
+          return;
+        }
+        selectedTokens.forEach(function (tok, idx) {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "token-btn";
+          chip.style.background = "#e0f2fe";
+          chip.style.color = "#0369a1";
+          chip.style.borderColor = "#7dd3fc";
+          chip.textContent = tok.text;
+          chip.addEventListener("click", function () {
+            if (answered) return;
+            tok.btnRef.classList.remove("used");
+            selectedTokens.splice(idx, 1);
+            renderSelectedSlots();
+          });
+          slots.appendChild(chip);
+        });
+      }
+
+      function resetBuilder() {
+        if (answered) return;
+        selectedTokens.forEach(function (t) { t.btnRef.classList.remove("used"); });
+        selectedTokens = [];
+        renderSelectedSlots();
+      }
+
+      function checkBuilderAnswer() {
+        if (answered || selectedTokens.length === 0) return;
+        const item = currentLevelObj.items[quizIndex];
+        const joiner = item.mode === "spell" ? "" : " ";
+        const userAns = selectedTokens.map(function (t) { return t.text; }).join(joiner);
+        answered = true;
+        if (userAns === item.answer) {
+          speakEnglish(item.en);
+          unlockStickerItem(item.idKey);
+          addCoins(5);
+          handleAnswerResult(true, 'Keren! Susunan "' + item.answer + '" tepat! (+5 🪙 & Stiker Terbuka)');
+        } else {
+          handleAnswerResult(false, 'Susunan yang tepat adalah: "' + item.answer + '"');
+        }
+      }
+
+      function handleAnswerResult(isCorrect, message) {
+        const fb = document.getElementById("feedbackBox");
+        fb.classList.remove("hidden", "feedback-ok", "feedback-bad");
+        if (isCorrect) {
+          correctCount++;
+          playTone("win");
+          fb.classList.add("feedback-ok");
+          fb.textContent = "🎉 " + message;
+          setPetBubble("Yeay! Jawabanmu tepat sekali! 🌟");
+        } else {
+          hearts--;
           playTone("lose");
-          b.style.opacity = "0.35";
+          document.getElementById("heartsDisplay").textContent =
+            "❤️".repeat(Math.max(0, hearts)) + "🤍".repeat(3 - Math.max(0, hearts));
+          fb.classList.add("feedback-bad");
+          fb.textContent = "💡 " + message;
+          setPetBubble("Tidak apa-apa, yuk perhatikan jawaban benarnya! 💡");
         }
-      };
-    }
+        document.getElementById("nextQuestionBtn").classList.remove("hidden");
+      }
 
-    function endBalloonGame() {
-      clearInterval(balloonInterval);
-      clearInterval(balloonClock);
-      finishQuiz(true);
-    }
-
-    // ================= HASIL SUBTEST & SERTIFIKAT .JPG =================
-    function finishQuiz(completed) {
-      hideAllScreens();
-      document.getElementById("resultScreen").classList.remove("hidden");
-      const certArea = document.getElementById("certificateRewardArea");
-      const total = currentLevelObj.items.length;
-
-      if (completed) {
-        playTone("fanfare");
-        addCoins(15);
-        const ratio = correctCount / total;
-        lastEarnedStars = ratio >= 0.9 ? 3 : ratio >= 0.65 ? 2 : 1;
-        const prev = savedStars[currentLevelObj.level] || 0;
-        if (lastEarnedStars > prev) {
-          savedStars[currentLevelObj.level] = lastEarnedStars;
-          localStorage.setItem("kabella_en_stars", JSON.stringify(savedStars));
+      function nextQuestion() {
+        if (hearts <= 0) {
+          finishQuiz(false);
+          return;
         }
-        updateHeaderAndPet();
-        setPetBubble(`Selamat! Kamu menaklukkan Level ${currentLevelObj.level}! 🏆`);
+        quizIndex++;
+        if (quizIndex >= currentLevelObj.items.length) {
+          startBalloonBonusRound();
+        } else {
+          renderQuestion();
+        }
+      }
 
+      // BONUS MINI-GAME BALLOON POP
+      let balloonTarget = null;
+
+      function startBalloonBonusRound() {
+        stopActiveTimers();
+        hideAllScreens();
+        document.getElementById("balloonScreen").classList.remove("hidden");
+        const arena = document.getElementById("balloonArena");
+        arena.innerHTML = "";
+        let timeLeft = 14;
+        document.getElementById("balloonTimer").textContent = timeLeft;
+
+        pickNewBalloonTarget();
+
+        balloonInterval = setInterval(spawnBalloon, 750);
+        balloonClock = setInterval(function () {
+          timeLeft--;
+          document.getElementById("balloonTimer").textContent = timeLeft;
+          if (timeLeft <= 0) endBalloonGame();
+        }, 1000);
+      }
+
+      function pickNewBalloonTarget() {
+        const items = currentLevelObj.items;
+        balloonTarget = items[Math.floor(Math.random() * items.length)];
+        const labelWord = balloonTarget.en.split(" ")[0];
+        document.getElementById("balloonPrompt").textContent =
+          '🎈 Pecahkan balon: "' + labelWord.toUpperCase() + '" (' + balloonTarget.id + ')!';
+        speakEnglish(labelWord);
+      }
+
+      function spawnBalloon() {
+        const arena = document.getElementById("balloonArena");
+        if (!arena || !balloonTarget) return;
+        const colors = ["#ef4444", "#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899"];
+        const isTarget = Math.random() < 0.5;
+        const randomItem = currentLevelObj.items[Math.floor(Math.random() * currentLevelObj.items.length)];
+        const word = (isTarget ? balloonTarget.en : randomItem.en).split(" ")[0].toUpperCase();
+
+        const b = document.createElement("div");
+        b.className = "balloon";
+        b.textContent = word;
+        b.style.background = colors[Math.floor(Math.random() * colors.length)];
+        b.style.left = Math.floor(Math.random() * 70 + 6) + "%";
+        arena.appendChild(b);
+
+        let pos = -80;
+        const speed = 1.6 + Math.random() * 1.3;
+        const mover = setInterval(function () {
+          pos += speed;
+          b.style.bottom = pos + "px";
+          if (pos > 360) {
+            clearInterval(mover);
+            if (b.parentNode) b.parentNode.removeChild(b);
+          }
+        }, 24);
+
+        b.addEventListener("click", function () {
+          clearInterval(mover);
+          const targetWord = balloonTarget.en.split(" ")[0].toUpperCase();
+          if (word === targetWord) {
+            playTone("pop");
+            addCoins(5);
+            b.textContent = "💥 +5🪙";
+            setTimeout(function () {
+              if (b.parentNode) b.parentNode.removeChild(b);
+            }, 180);
+            pickNewBalloonTarget();
+          } else {
+            playTone("lose");
+            b.style.opacity = "0.35";
+          }
+        });
+      }
+
+      function endBalloonGame() {
+        stopActiveTimers();
+        finishQuiz(true);
+      }
+
+      // HASIL & SERTIFIKAT .JPG
+      function finishQuiz(completed) {
+        hideAllScreens();
+        document.getElementById("resultScreen").classList.remove("hidden");
+        const certArea = document.getElementById("certificateRewardArea");
+        const total = currentLevelObj.items.length;
+
+        if (completed) {
+          playTone("fanfare");
+          addCoins(15);
+          const ratio = correctCount / total;
+          lastEarnedStars = ratio >= 0.9 ? 3 : ratio >= 0.65 ? 2 : 1;
+          const prev = savedStars[currentLevelObj.level] || 0;
+          if (lastEarnedStars > prev) {
+            savedStars[currentLevelObj.level] = lastEarnedStars;
+            safeSet("kabella_en_stars", JSON.stringify(savedStars));
+          }
+          updateHeaderAndPet();
+          setPetBubble("Selamat! Kamu menaklukkan Level " + currentLevelObj.level + "! 🏆");
+
+          document.getElementById("resultIcon").textContent = currentLevelObj.badgeIcon;
+          document.getElementById("resultTitle").textContent = "Hore! Subtest Level " + currentLevelObj.level + " Lulus!";
+          document.getElementById("resultDesc").textContent =
+            "Benar " + correctCount + "/" + total + ' soal • Gelar "' + currentLevelObj.rankName + '" (' + "⭐".repeat(lastEarnedStars) + ") • Bonus +15 🪙!";
+
+          certArea.classList.remove("hidden");
+          document.getElementById("playerNameInput").value = savedPlayerName;
+          updateCertificatePreview();
+        } else {
+          document.getElementById("resultIcon").textContent = "💪";
+          document.getElementById("resultTitle").textContent = "Sedikit Lagi Berhasil, Yuk Coba Lagi!";
+          document.getElementById("resultDesc").textContent =
+            'Kesempatan hatimu habis. Buka mode "Belajar" dulu lalu ulangi subtest untuk mengklaim Sertifikat Digital!';
+          certArea.classList.add("hidden");
+        }
+      }
+
+      function openSavedCertificate(levelNum) {
+        currentLevelObj = LEVELS.find(function (g) { return g.level === levelNum; }) || LEVELS[0];
+        lastEarnedStars = savedStars[levelNum] || 3;
+        hideAllScreens();
+        document.getElementById("mainNavTabs").classList.add("hidden");
+        document.getElementById("resultScreen").classList.remove("hidden");
         document.getElementById("resultIcon").textContent = currentLevelObj.badgeIcon;
-        document.getElementById("resultTitle").textContent = `Hore! Subtest Level ${currentLevelObj.level} Lulus!`;
+        document.getElementById("resultTitle").textContent = "Koleksi Sertifikat Level " + currentLevelObj.level;
         document.getElementById("resultDesc").textContent =
-          `Benar ${correctCount}/${total} soal • Gelar "${currentLevelObj.rankName}" (${"⭐".repeat(lastEarnedStars)}) • Bonus +15 🪙!`;
-
-        certArea.classList.remove("hidden");
+          'Gelar "' + currentLevelObj.rankName + '" dengan capaian ' + "⭐".repeat(lastEarnedStars);
+        document.getElementById("certificateRewardArea").classList.remove("hidden");
         document.getElementById("playerNameInput").value = savedPlayerName;
         updateCertificatePreview();
-      } else {
-        document.getElementById("resultIcon").textContent = "💪";
-        document.getElementById("resultTitle").textContent = "Sedikit Lagi Berhasil, Yuk Coba Lagi!";
-        document.getElementById("resultDesc").textContent =
-          `Kesempatan hatimu habis. Buka mode "Belajar" dulu lalu ulangi subtest untuk mengklaim Sertifikat Digital!`;
-        certArea.classList.add("hidden");
       }
-    }
 
-    function openSavedCertificate(levelNum) {
-      currentLevelObj = LEVELS.find((g) => g.level === levelNum);
-      lastEarnedStars = savedStars[levelNum] || 3;
-      hideAllScreens();
-      document.getElementById("mainNavTabs").classList.add("hidden");
-      document.getElementById("resultScreen").classList.remove("hidden");
-      document.getElementById("resultIcon").textContent = currentLevelObj.badgeIcon;
-      document.getElementById("resultTitle").textContent = `Koleksi Sertifikat Level ${currentLevelObj.level}`;
-      document.getElementById("resultDesc").textContent =
-        `Gelar "${currentLevelObj.rankName}" dengan capaian ${"⭐".repeat(lastEarnedStars)}`;
-      document.getElementById("certificateRewardArea").classList.remove("hidden");
-      document.getElementById("playerNameInput").value = savedPlayerName;
-      updateCertificatePreview();
-    }
-
-    // HELPER GAMBAR CANVAS KOMPATIBEL SEMUA BROWSER
-    function drawRoundedRect(ctx, x, y, w, h, r) {
-      ctx.beginPath();
-      ctx.moveTo(x + r, y);
-      ctx.lineTo(x + w - r, y);
-      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-      ctx.lineTo(x + w, y + h - r);
-      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-      ctx.lineTo(x + r, y + h);
-      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-      ctx.lineTo(x, y + r);
-      ctx.quadraticCurveTo(x, y, x + r, y);
-      ctx.closePath();
-    }
-
-    function drawStarShape(ctx, cx, cy, spikes, outerR, innerR, fillStyle, strokeStyle) {
-      let rot = (Math.PI / 2) * 3;
-      const step = Math.PI / spikes;
-      ctx.beginPath();
-      ctx.moveTo(cx, cy - outerR);
-      for (let i = 0; i < spikes; i++) {
-        ctx.lineTo(cx + Math.cos(rot) * outerR, cy + Math.sin(rot) * outerR);
-        rot += step;
-        ctx.lineTo(cx + Math.cos(rot) * innerR, cy + Math.sin(rot) * innerR);
-        rot += step;
+      function drawRoundedRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
       }
-      ctx.closePath();
-      ctx.fillStyle = fillStyle;
-      ctx.fill();
-      if (strokeStyle) {
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = strokeStyle;
+
+      function drawStarShape(ctx, cx, cy, spikes, outerR, innerR, fillStyle, strokeStyle) {
+        let rot = (Math.PI / 2) * 3;
+        const step = Math.PI / spikes;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - outerR);
+        for (let i = 0; i < spikes; i++) {
+          ctx.lineTo(cx + Math.cos(rot) * outerR, cy + Math.sin(rot) * outerR);
+          rot += step;
+          ctx.lineTo(cx + Math.cos(rot) * innerR, cy + Math.sin(rot) * innerR);
+          rot += step;
+        }
+        ctx.closePath();
+        ctx.fillStyle = fillStyle;
+        ctx.fill();
+        if (strokeStyle) {
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = strokeStyle;
+          ctx.stroke();
+        }
+      }
+
+      function getEquippedIcons() {
+        const avObj = SHOP_AVATARS.find(function (a) { return a.id === equipped.avatar; }) || SHOP_AVATARS[0];
+        const stObj = SHOP_STICKERS.find(function (s) { return s.id === equipped.sticker; }) || SHOP_STICKERS[0];
+        const petIcon = getCurrentPetInfo().icon;
+        return { av: avObj.icon, st: stObj.icon, petIcon: petIcon, frame: equipped.frame };
+      }
+
+      function updateCertificatePreview() {
+        if (!currentLevelObj) return;
+        const rawName = document.getElementById("playerNameInput").value.trim();
+        if (rawName) {
+          savedPlayerName = rawName;
+          safeSet("kabella_player_name", rawName);
+        }
+        const displayName = rawName || "Bintang Juara Hebat";
+        const canvas = document.getElementById("certCanvas");
+        const ctx = canvas.getContext("2d");
+        const W = canvas.width;
+        const H = canvas.height;
+        const theme = currentLevelObj.certTheme;
+        const eq = getEquippedIcons();
+
+        const grad = ctx.createLinearGradient(0, 0, W, H);
+        if (eq.frame === "fr_gold") {
+          grad.addColorStop(0, "#fef08a");
+          grad.addColorStop(1, "#f59e0b");
+        } else if (eq.frame === "fr_party") {
+          grad.addColorStop(0, "#fbcfe8");
+          grad.addColorStop(0.5, "#bae6fd");
+          grad.addColorStop(1, "#bbf7d0");
+        } else {
+          grad.addColorStop(0, theme.bg1);
+          grad.addColorStop(1, theme.bg2);
+        }
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, H);
+
+        drawRoundedRect(ctx, 42, 42, W - 84, H - 84, 32);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = eq.frame === "fr_gold" ? "#d97706" : theme.border;
         ctx.stroke();
+
+        ctx.save();
+        ctx.setLineDash([14, 10]);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = theme.ribbon;
+        drawRoundedRect(ctx, 62, 62, W - 124, H - 124, 22);
+        ctx.stroke();
+        ctx.restore();
+
+        drawStarShape(ctx, 98, 98, 5, 22, 10, "#fbbf24", "#f59e0b");
+        drawStarShape(ctx, W - 98, 98, 5, 22, 10, "#fbbf24", "#f59e0b");
+        drawStarShape(ctx, 98, H - 98, 5, 22, 10, "#fbbf24", "#f59e0b");
+        drawStarShape(ctx, W - 98, H - 98, 5, 22, 10, "#fbbf24", "#f59e0b");
+
+        drawRoundedRect(ctx, W / 2 - 260, 76, 520, 52, 26);
+        ctx.fillStyle = theme.border;
+        ctx.fill();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 23px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("✨ CERTIFICATE OF ACHIEVEMENT ✨", W / 2, 110);
+
+        ctx.font = "54px 'Segoe UI Emoji', sans-serif";
+        ctx.fillText(eq.av + "   " + currentLevelObj.badgeIcon + "   " + eq.st, W / 2, 192);
+
+        ctx.fillStyle = "#64748b";
+        ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Sertifikat kebanggaan ini diberikan kepada:", W / 2, 236);
+
+        ctx.fillStyle = theme.accent;
+        ctx.font = "bold 48px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.fillText(displayName, W / 2, 298);
+
+        ctx.strokeStyle = "#cbd5e1";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(220, 315);
+        ctx.lineTo(W - 220, 315);
+        ctx.stroke();
+
+        ctx.fillStyle = "#334155";
+        ctx.font = "bold 21px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Telah berhasil menaklukkan tantangan belajar Bahasa Inggris", W / 2, 356);
+
+        drawRoundedRect(ctx, W / 2 - 295, 376, 590, 50, 18);
+        ctx.fillStyle = theme.ribbon;
+        ctx.fill();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 23px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.fillText("LEVEL " + currentLevelObj.level + " • " + currentLevelObj.title.toUpperCase(), W / 2, 409);
+
+        ctx.fillStyle = theme.accent;
+        ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText('Gelar: "' + currentLevelObj.rankName + '"  •  Maskot: ' + eq.petIcon, W / 2, 458);
+
+        for (let s = 0; s < 3; s++) {
+          const sx = W / 2 + (s - 1) * 68;
+          const active = s < lastEarnedStars;
+          drawStarShape(ctx, sx, 508, 5, 23, 10, active ? "#facc15" : "#e2e8f0", active ? "#eab308" : "#cbd5e1");
+        }
+
+        const todayStr = new Date().toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+        ctx.fillStyle = "#475569";
+        ctx.font = "bold 16px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.textAlign = "left";
+        ctx.fillText("Tanggal: " + todayStr, 108, 598);
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Program Media Edukasi Bahasa Inggris Interaktif", 108, 620);
+
+        ctx.textAlign = "right";
+        ctx.fillStyle = theme.accent;
+        ctx.font = "bold 20px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.fillText("kabellasensen", W - 108, 598);
+        ctx.fillStyle = "#64748b";
+        ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Creator • English Fun Adventure", W - 108, 620);
       }
-    }
 
-    function getEquippedIcons() {
-      const av = (SHOP_AVATARS.find((a) => a.id === equipped.avatar) || SHOP_AVATARS[0]).icon;
-      const st = (SHOP_STICKERS.find((s) => s.id === equipped.sticker) || SHOP_STICKERS[0]).icon;
-      const petIcon = getCurrentPetInfo().icon;
-      return { av, st, petIcon, frame: equipped.frame };
-    }
-
-    function updateCertificatePreview() {
-      if (!currentLevelObj) return;
-      const rawName = document.getElementById("playerNameInput").value.trim();
-      if (rawName) {
-        savedPlayerName = rawName;
-        localStorage.setItem("kabella_player_name", rawName);
+      function downloadCertificateJPG() {
+        updateCertificatePreview();
+        const canvas = document.getElementById("certCanvas");
+        const cleanName = (document.getElementById("playerNameInput").value.trim() || "Juara").replace(/[^a-zA-Z0-9_-]/g, "_");
+        const link = document.createElement("a");
+        link.download = "Sertifikat_Level_" + currentLevelObj.level + "_" + cleanName + "_kabellasensen.jpg";
+        link.href = canvas.toDataURL("image/jpeg", 0.95);
+        link.click();
       }
-      const displayName = rawName || "Bintang Juara Hebat";
-      const canvas = document.getElementById("certCanvas");
-      const ctx = canvas.getContext("2d");
-      const W = canvas.width;
-      const H = canvas.height;
-      const theme = currentLevelObj.certTheme;
-      const eq = getEquippedIcons();
 
-      const grad = ctx.createLinearGradient(0, 0, W, H);
-      if (eq.frame === "fr_gold") {
+      // GRAND MASTER CERTIFICATE
+      function renderGrandTab() {
+        const completedLevels = LEVELS.filter(function (lv) { return (savedStars[lv.level] || 0) >= 1; }).length;
+        const box = document.getElementById("grandCertBox");
+        if (completedLevels < LEVELS.length) {
+          document.getElementById("grandLockIcon").textContent = "🔒";
+          document.getElementById("grandTitle").textContent = "Sertifikat Emas Grand Master Terkunci";
+          document.getElementById("grandDesc").textContent =
+            "Kamu sudah menamatkan " + completedLevels + " dari " + LEVELS.length + " Level. Selesaikan seluruh 6 Subtest untuk membuka Sertifikat Emas Spesial ini!";
+          box.classList.add("hidden");
+        } else {
+          document.getElementById("grandLockIcon").textContent = "👑";
+          document.getElementById("grandTitle").textContent = "Selamat! Kamu Adalah GRAND MASTER!";
+          document.getElementById("grandDesc").textContent =
+            "Seluruh 6 Subtest telah kamu taklukkan! Unduh Sertifikat Emas Eksklusif kebanggaanmu di bawah ini:";
+          box.classList.remove("hidden");
+          document.getElementById("grandNameInput").value = savedPlayerName;
+          renderGrandCertificate();
+        }
+      }
+
+      function renderGrandCertificate() {
+        const rawName = document.getElementById("grandNameInput").value.trim();
+        if (rawName) {
+          savedPlayerName = rawName;
+          safeSet("kabella_player_name", rawName);
+        }
+        const displayName = rawName || "Grand Master Hebat";
+        const canvas = document.getElementById("grandCertCanvas");
+        const ctx = canvas.getContext("2d");
+        const W = canvas.width;
+        const H = canvas.height;
+        const eq = getEquippedIcons();
+        const starVals = Object.keys(savedStars).map(function (k) { return savedStars[k] || 0; });
+        const totalStarSum = starVals.reduce(function (a, b) { return a + b; }, 0);
+
+        const grad = ctx.createLinearGradient(0, 0, W, H);
         grad.addColorStop(0, "#fef08a");
+        grad.addColorStop(0.5, "#fde047");
         grad.addColorStop(1, "#f59e0b");
-      } else if (eq.frame === "fr_party") {
-        grad.addColorStop(0, "#fbcfe8");
-        grad.addColorStop(0.5, "#bae6fd");
-        grad.addColorStop(1, "#bbf7d0");
-      } else {
-        grad.addColorStop(0, theme.bg1);
-        grad.addColorStop(1, theme.bg2);
-      }
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, H);
 
-      drawRoundedRect(ctx, 42, 42, W - 84, H - 84, 32);
-      ctx.fillStyle = "#ffffff";
-      ctx.fill();
-      ctx.lineWidth = 10;
-      ctx.strokeStyle = eq.frame === "fr_gold" ? "#d97706" : theme.border;
-      ctx.stroke();
+        drawRoundedRect(ctx, 40, 40, W - 80, H - 80, 32);
+        ctx.fillStyle = "#fffdf5";
+        ctx.fill();
+        ctx.lineWidth = 12;
+        ctx.strokeStyle = "#b45309";
+        ctx.stroke();
 
-      ctx.save();
-      ctx.setLineDash([14, 10]);
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = theme.ribbon;
-      drawRoundedRect(ctx, 62, 62, W - 124, H - 124, 22);
-      ctx.stroke();
-      ctx.restore();
+        drawRoundedRect(ctx, W / 2 - 290, 74, 580, 54, 27);
+        ctx.fillStyle = "#b45309";
+        ctx.fill();
 
-      drawStarShape(ctx, 98, 98, 5, 22, 10, "#fbbf24", "#f59e0b");
-      drawStarShape(ctx, W - 98, 98, 5, 22, 10, "#fbbf24", "#f59e0b");
-      drawStarShape(ctx, 98, H - 98, 5, 22, 10, "#fbbf24", "#f59e0b");
-      drawStarShape(ctx, W - 98, H - 98, 5, 22, 10, "#fbbf24", "#f59e0b");
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 24px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("👑 GRAND MASTER GOLDEN CERTIFICATE 👑", W / 2, 109);
 
-      drawRoundedRect(ctx, W / 2 - 260, 76, 520, 52, 26);
-      ctx.fillStyle = theme.border;
-      ctx.fill();
+        ctx.font = "54px 'Segoe UI Emoji', sans-serif";
+        ctx.fillText(eq.av + "   🏆   " + eq.petIcon + "   " + eq.st, W / 2, 186);
 
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 23px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText("✨ CERTIFICATE OF ACHIEVEMENT ✨", W / 2, 110);
+        ctx.fillStyle = "#78350f";
+        ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Penghargaan Tertinggi English Fun Adventure Diberikan Kepada:", W / 2, 228);
 
-      // Avatar + Badge Subtest + Stiker Pilihan Anak
-      ctx.font = "54px 'Segoe UI Emoji', sans-serif";
-      ctx.fillText(`${eq.av}   ${currentLevelObj.badgeIcon}   ${eq.st}`, W / 2, 192);
+        ctx.fillStyle = "#b45309";
+        ctx.font = "bold 50px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.fillText(displayName, W / 2, 290);
 
-      ctx.fillStyle = "#64748b";
-      ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Sertifikat kebanggaan ini diberikan kepada:", W / 2, 236);
+        ctx.fillStyle = "#334155";
+        ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Telah Menamatkan Seluruh 6 Level Subtest dengan Total " + totalStarSum + "/18 ⭐ Bintang!", W / 2, 336);
 
-      ctx.fillStyle = theme.accent;
-      ctx.font = "bold 48px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.fillText(displayName, W / 2, 298);
+        drawRoundedRect(ctx, 110, 358, W - 220, 155, 20);
+        ctx.fillStyle = "#fef3c7";
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "#f59e0b";
+        ctx.stroke();
 
-      ctx.strokeStyle = "#cbd5e1";
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(220, 315);
-      ctx.lineTo(W - 220, 315);
-      ctx.stroke();
+        ctx.fillStyle = "#92400e";
+        ctx.font = "bold 17px 'Nunito', 'Segoe UI', sans-serif";
+        LEVELS.forEach(function (lv, idx) {
+          const col = idx % 2 === 0 ? W / 2 - 195 : W / 2 + 195;
+          const row = 395 + Math.floor(idx / 2) * 44;
+          ctx.fillText(lv.badgeIcon + " Lv." + lv.level + " " + lv.rankName + " (" + "⭐".repeat(savedStars[lv.level] || 1) + ")", col, row);
+        });
 
-      ctx.fillStyle = "#334155";
-      ctx.font = "bold 21px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Telah berhasil menaklukkan tantangan belajar Bahasa Inggris", W / 2, 356);
+        const todayStr = new Date().toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+        ctx.textAlign = "left";
+        ctx.fillStyle = "#475569";
+        ctx.font = "bold 16px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Tanggal Kelulusan: " + todayStr, 108, 596);
+        ctx.fillStyle = "#78716c";
+        ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Media Edukasi Bahasa Inggris Interaktif", 108, 618);
 
-      drawRoundedRect(ctx, W / 2 - 295, 376, 590, 50, 18);
-      ctx.fillStyle = theme.ribbon;
-      ctx.fill();
-
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 23px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.fillText(`LEVEL ${currentLevelObj.level} • ${currentLevelObj.title.toUpperCase()}`, W / 2, 409);
-
-      ctx.fillStyle = theme.accent;
-      ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText(`Gelar: "${currentLevelObj.rankName}"  •  Maskot: ${eq.petIcon}`, W / 2, 458);
-
-      for (let s = 0; s < 3; s++) {
-        const sx = W / 2 + (s - 1) * 68;
-        const active = s < lastEarnedStars;
-        drawStarShape(ctx, sx, 508, 5, 23, 10, active ? "#facc15" : "#e2e8f0", active ? "#eab308" : "#cbd5e1");
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#b45309";
+        ctx.font = "bold 22px 'Fredoka', 'Segoe UI', sans-serif";
+        ctx.fillText("kabellasensen", W - 108, 596);
+        ctx.fillStyle = "#78350f";
+        ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
+        ctx.fillText("Creator • Official Grand Master Seal", W - 108, 618);
       }
 
-      const todayStr = new Date().toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
-      ctx.fillStyle = "#475569";
-      ctx.font = "bold 16px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText(`Tanggal: ${todayStr}`, 108, 598);
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Program Media Edukasi Bahasa Inggris Interaktif", 108, 620);
-
-      ctx.textAlign = "right";
-      ctx.fillStyle = theme.accent;
-      ctx.font = "bold 20px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.fillText("kabellasensen", W - 108, 598);
-      ctx.fillStyle = "#64748b";
-      ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Creator • English Fun Adventure", W - 108, 620);
-    }
-
-    function downloadCertificateJPG() {
-      updateCertificatePreview();
-      const canvas = document.getElementById("certCanvas");
-      const cleanName = (document.getElementById("playerNameInput").value.trim() || "Juara").replace(/[^a-zA-Z0-9_-]/g, "_");
-      const link = document.createElement("a");
-      link.download = `Sertifikat_Level_${currentLevelObj.level}_${cleanName}_kabellasensen.jpg`;
-      link.href = canvas.toDataURL("image/jpeg", 0.95);
-      link.click();
-    }
-
-    // ================= SERTIFIKAT EMAS GRAND MASTER (TAMAT SEMUA 6 LEVEL) =================
-    function renderGrandTab() {
-      const completedLevels = LEVELS.filter((lv) => (savedStars[lv.level] || 0) >= 1).length;
-      const box = document.getElementById("grandCertBox");
-      if (completedLevels < LEVELS.length) {
-        document.getElementById("grandLockIcon").textContent = "🔒";
-        document.getElementById("grandTitle").textContent = "Sertifikat Emas Grand Master Terkunci";
-        document.getElementById("grandDesc").textContent =
-          `Kamu sudah menamatkan ${completedLevels} dari ${LEVELS.length} Level. Selesaikan seluruh 6 Subtest untuk membuka Sertifikat Emas Spesial ini!`;
-        box.classList.add("hidden");
-      } else {
-        document.getElementById("grandLockIcon").textContent = "👑";
-        document.getElementById("grandTitle").textContent = "Selamat! Kamu Adalah GRAND MASTER!";
-        document.getElementById("grandDesc").textContent =
-          "Seluruh 6 Subtest telah kamu taklukkan! Unduh Sertifikat Emas Eksklusif kebanggaanmu di bawah ini:";
-        box.classList.remove("hidden");
-        document.getElementById("grandNameInput").value = savedPlayerName;
+      function downloadGrandJPG() {
         renderGrandCertificate();
+        const canvas = document.getElementById("grandCertCanvas");
+        const cleanName = (document.getElementById("grandNameInput").value.trim() || "GrandMaster").replace(/[^a-zA-Z0-9_-]/g, "_");
+        const link = document.createElement("a");
+        link.download = "Sertifikat_GRAND_MASTER_" + cleanName + "_kabellasensen.jpg";
+        link.href = canvas.toDataURL("image/jpeg", 0.96);
+        link.click();
       }
-    }
 
-    function renderGrandCertificate() {
-      const rawName = document.getElementById("grandNameInput").value.trim();
-      if (rawName) {
-        savedPlayerName = rawName;
-        localStorage.setItem("kabella_player_name", rawName);
+      // IKAT SEMUA TOMBOL STATIS SAAT HALAMAN SIAP
+      function initApp() {
+        document.getElementById("brandHomeBtn").addEventListener("click", function () { switchTab("adventure"); });
+        document.getElementById("musicBtn").addEventListener("click", toggleMusic);
+        document.getElementById("fullscreenBtn").addEventListener("click", toggleFullscreen);
+
+        document.getElementById("tabBtnAdventure").addEventListener("click", function () { switchTab("adventure"); });
+        document.getElementById("tabBtnAlbum").addEventListener("click", function () { switchTab("album"); });
+        document.getElementById("tabBtnShop").addEventListener("click", function () { switchTab("shop"); });
+        document.getElementById("tabBtnGrand").addEventListener("click", function () { switchTab("grand"); });
+
+        document.getElementById("studyBackBtn").addEventListener("click", function () { switchTab("adventure"); });
+        document.getElementById("playBackBtn").addEventListener("click", function () { switchTab("adventure"); });
+        document.getElementById("resultHomeBtn").addEventListener("click", function () { switchTab("adventure"); });
+
+        document.getElementById("studySpeakBtn").addEventListener("click", speakCurrentStudy);
+        document.getElementById("studyMicBtn").addEventListener("click", practiceMicStudy);
+        document.getElementById("prevStudyBtn").addEventListener("click", prevStudy);
+        document.getElementById("nextStudyBtn").addEventListener("click", nextStudy);
+
+        document.getElementById("quizSpeakBtn").addEventListener("click", speakQuizAudio);
+        document.getElementById("quizMicBtn").addEventListener("click", answerWithMic);
+        document.getElementById("resetBuilderBtn").addEventListener("click", resetBuilder);
+        document.getElementById("checkBuilderBtn").addEventListener("click", checkBuilderAnswer);
+        document.getElementById("nextQuestionBtn").addEventListener("click", nextQuestion);
+
+        document.getElementById("skipBalloonBtn").addEventListener("click", endBalloonGame);
+        document.getElementById("playerNameInput").addEventListener("input", updateCertificatePreview);
+        document.getElementById("downloadCertBtn").addEventListener("click", downloadCertificateJPG);
+        document.getElementById("replayLevelBtn").addEventListener("click", replayCurrentLevel);
+
+        document.getElementById("grandNameInput").addEventListener("input", renderGrandCertificate);
+        document.getElementById("downloadGrandBtn").addEventListener("click", downloadGrandJPG);
+        document.getElementById("petWidget").addEventListener("click", petEncourage);
+
+        renderHome();
       }
-      const displayName = rawName || "Grand Master Hebat";
-      const canvas = document.getElementById("grandCertCanvas");
-      const ctx = canvas.getContext("2d");
-      const W = canvas.width;
-      const H = canvas.height;
-      const eq = getEquippedIcons();
-      const totalStarSum = Object.values(savedStars).reduce((a, b) => a + b, 0);
 
-      const grad = ctx.createLinearGradient(0, 0, W, H);
-      grad.addColorStop(0, "#fef08a");
-      grad.addColorStop(0.5, "#fde047");
-      grad.addColorStop(1, "#f59e0b");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, W, H);
-
-      drawRoundedRect(ctx, 40, 40, W - 80, H - 80, 32);
-      ctx.fillStyle = "#fffdf5";
-      ctx.fill();
-      ctx.lineWidth = 12;
-      ctx.strokeStyle = "#b45309";
-      ctx.stroke();
-
-      drawRoundedRect(ctx, W / 2 - 290, 74, 580, 54, 27);
-      ctx.fillStyle = "#b45309";
-      ctx.fill();
-
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 24px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText("👑 GRAND MASTER GOLDEN CERTIFICATE 👑", W / 2, 109);
-
-      ctx.font = "54px 'Segoe UI Emoji', sans-serif";
-      ctx.fillText(`${eq.av}   🏆   ${eq.petIcon}   ${eq.st}`, W / 2, 186);
-
-      ctx.fillStyle = "#78350f";
-      ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Penghargaan Tertinggi English Fun Adventure Diberikan Kepada:", W / 2, 228);
-
-      ctx.fillStyle = "#b45309";
-      ctx.font = "bold 50px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.fillText(displayName, W / 2, 290);
-
-      ctx.fillStyle = "#334155";
-      ctx.font = "bold 20px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText(`Telah Menamatkan Seluruh 6 Level Subtest dengan Total ${totalStarSum}/18 ⭐ Bintang!`, W / 2, 336);
-
-      // Daftar 6 Gelar Subtest
-      drawRoundedRect(ctx, 110, 358, W - 220, 155, 20);
-      ctx.fillStyle = "#fef3c7";
-      ctx.fill();
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = "#f59e0b";
-      ctx.stroke();
-
-      ctx.fillStyle = "#92400e";
-      ctx.font = "bold 17px 'Nunito', 'Segoe UI', sans-serif";
-      LEVELS.forEach((lv, idx) => {
-        const col = idx % 2 === 0 ? W / 2 - 195 : W / 2 + 195;
-        const row = 395 + Math.floor(idx / 2) * 44;
-        ctx.fillText(`${lv.badgeIcon} Lv.${lv.level} ${lv.rankName} (${"⭐".repeat(savedStars[lv.level] || 1)})`, col, row);
-      });
-
-      const todayStr = new Date().toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
-      ctx.textAlign = "left";
-      ctx.fillStyle = "#475569";
-      ctx.font = "bold 16px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText(`Tanggal Kelulusan: ${todayStr}`, 108, 596);
-      ctx.fillStyle = "#78716c";
-      ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Media Edukasi Bahasa Inggris Interaktif", 108, 618);
-
-      ctx.textAlign = "right";
-      ctx.fillStyle = "#b45309";
-      ctx.font = "bold 22px 'Fredoka', 'Segoe UI', sans-serif";
-      ctx.fillText("kabellasensen", W - 108, 596);
-      ctx.fillStyle = "#78350f";
-      ctx.font = "bold 14px 'Nunito', 'Segoe UI', sans-serif";
-      ctx.fillText("Creator • Official Grand Master Seal", W - 108, 618);
-    }
-
-    function downloadGrandJPG() {
-      renderGrandCertificate();
-      const canvas = document.getElementById("grandCertCanvas");
-      const cleanName = (document.getElementById("grandNameInput").value.trim() || "GrandMaster").replace(/[^a-zA-Z0-9_-]/g, "_");
-      const link = document.createElement("a");
-      link.download = `Sertifikat_GRAND_MASTER_${cleanName}_kabellasensen.jpg`;
-      link.href = canvas.toDataURL("image/jpeg", 0.96);
-      link.click();
-    }
-
-    // Jalankan saat halaman dibuka
-    renderHome();
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initApp);
+      } else {
+        initApp();
+      }
+    })();
   </script>
 </body>
 </html>
